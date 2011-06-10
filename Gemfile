@@ -9,4 +9,5 @@ gem 'mysql2'
 
 gem "devise", ">=1.1.7"
 gem "active_scaffold"
+gem "haml", ">= 3.0.18"
 
