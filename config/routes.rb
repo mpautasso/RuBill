@@ -1,7 +1,8 @@
 Rubill::Application.routes.draw do
   devise_for :users
 
-  root :to => "home#index"
+  root :controller => "users", :action => "sign_in"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
