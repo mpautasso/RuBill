@@ -11,3 +11,11 @@ gem "devise", ">=1.1.7"
 gem "active_scaffold"
 gem "haml", ">= 3.0.18"
 
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'haml-rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
+  gem 'web-app-theme'
+end
