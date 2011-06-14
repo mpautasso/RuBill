@@ -1,10 +1,9 @@
 Rubill::Application.routes.draw do
-  get "home/index"
+  devise_scope :user do
+     get "/", :to => "devise/sessions#new" 
+  end
 
-  devise_for :users
- 
-  #root :controller => "users", :action => "sign_in"
-  root :to => "home#index"
+  devise_for :users 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
