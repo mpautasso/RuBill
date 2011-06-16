@@ -10,12 +10,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616200401) do
+ActiveRecord::Schema.define(:version => 20110616205837) do
+
+  create_table "calls", :force => true do |t|
+    t.datetime "calldate",                                  :null => false
+    t.string   "clid",        :limit => 80, :default => "", :null => false
+    t.string   "src",         :limit => 80, :default => "", :null => false
+    t.string   "dst",         :limit => 80, :default => "", :null => false
+    t.string   "dcontext",    :limit => 80, :default => "", :null => false
+    t.string   "channel",     :limit => 80, :default => "", :null => false
+    t.string   "dstchannel",  :limit => 80, :default => "", :null => false
+    t.string   "lastapp",     :limit => 80, :default => "", :null => false
+    t.string   "lastdata",    :limit => 80, :default => "", :null => false
+    t.integer  "duration",                  :default => 0,  :null => false
+    t.integer  "billsec",                   :default => 0,  :null => false
+    t.string   "disposition", :limit => 45, :default => "", :null => false
+    t.integer  "amaflags",                  :default => 0,  :null => false
+    t.string   "accountcode", :limit => 20, :default => "", :null => false
+    t.string   "userfield",                 :default => "", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "calls", ["accountcode"], :name => "index_calls_on_accountcode", :unique => true
+  add_index "calls", ["calldate"], :name => "index_calls_on_calldate", :unique => true
+  add_index "calls", ["dst"], :name => "index_calls_on_dst", :unique => true
 
   create_table "invoices", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "item_type"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "invoice_id"
   end
 
   create_table "users", :force => true do |t|
