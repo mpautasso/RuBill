@@ -1,0 +1,3 @@
+class FailedCall < Call
+  
+end

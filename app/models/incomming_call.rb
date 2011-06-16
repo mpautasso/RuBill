@@ -1,0 +1,3 @@
+class IncommingCall < Call
+  
+end
