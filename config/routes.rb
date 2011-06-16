@@ -1,4 +1,6 @@
 Rubill::Application.routes.draw do
+  resources :invoices do as_routes end
+
   devise_scope :user do
      get "/", :to => "devise/sessions#new" 
   end

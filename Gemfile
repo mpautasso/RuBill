@@ -9,6 +9,8 @@ gem 'mysql2'
 
 gem "devise", ">=1.1.7"
 gem "active_scaffold"
+gem "active_scaffold_export", ">= 3.0.6"
+
 gem "haml", ">= 3.0.18"
 
 group :development, :test do
