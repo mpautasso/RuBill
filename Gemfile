@@ -18,4 +18,5 @@ group :development, :test do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'web-app-theme'
+  gem 'rails-erd'
 end
