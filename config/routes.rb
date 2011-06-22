@@ -1,9 +1,5 @@
 Rubill::Application.routes.draw do
-  
-  resources :users do 
-    as_routes
-  end
-  
+ 
   resources :rates do 
     as_routes
   end
@@ -30,7 +26,9 @@ Rubill::Application.routes.draw do
     :sessions => 'sessions'
   }
   
-  resources :users   
+  resources :users do 
+    as_routes
+  end
  # devise_for :users, :controllers => {:sessions => 'sessions'}
   
 #  devise_scope :user do

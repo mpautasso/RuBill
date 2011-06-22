@@ -8,13 +8,22 @@
     = stylesheet_link_tag 'glip.css', 'sn.css'
     = javascript_include_tag :defaults
     = csrf_meta_tag
+    
+    / *************************************************************************
+    / BluePrint CSS Framework 
+    / ************************************************************************* 
+    = stylesheet_link_tag 'blueprint/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'blueprint/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'blueprint/ie.css', :media => 'screen, projection'
+
 
 %body
   - flash.each do |name, msg|
     = content_tag :div, msg, :id => "flash_#{name}"
        
 
-  = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+    = render_navigation
 
   - if current_user
     Login as: 
