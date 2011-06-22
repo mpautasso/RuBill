@@ -1,0 +1,26 @@
+#example_1.example_content {
+  border: 10px solid #505050;
+  padding: 0px; }
+  #example_1.example_content #navigation {
+    float: left;
+    width: 120px;
+    background-color: #505050; }
+    #example_1.example_content #navigation ul {
+      padding-left: 50px; }
+      #example_1.example_content #navigation ul ul {
+        padding-left: 20px; }
+    #example_1.example_content #navigation a {
+      text-decoration: none;
+      color: #FFFFFF; }
+      #example_1.example_content #navigation a:hover, #example_1.example_content #navigation a:active {
+        text-decoration: underline; }
+    #example_1.example_content #navigation li {
+      border: medium none;
+      list-style-image: none;
+      list-style-type: none;
+      padding: 2px; }
+      #example_1.example_content #navigation li a.selected {
+        color: #FFFFFF;
+        text-decoration: underline; }
+      #example_1.example_content #navigation li li {
+        font-size: 10pt; }

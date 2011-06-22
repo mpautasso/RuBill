@@ -1,13 +1,36 @@
 Rubill::Application.routes.draw do
-  resources :invoices 
-  resources :rates
+  
+  resources :users do 
+    as_routes
+  end
+  
+  resources :rates do 
+    as_routes
+  end
+  
+  resources :invoices do 
+    as_routes
+  end
+
+  resources :incomming_calls do 
+    as_routes
+  end
+  
+  resources :outgoing_calls do 
+    as_routes
+  end
+  
+  resources :items_invoices do 
+    as_routes
+  end
   
   root :to => 'home#index'
-#  match "sign_in", :to => "devise/sessions#new"
   
-   devise_for :users, :controllers => {
+  devise_for :users, :controllers => {
     :sessions => 'sessions'
-   }
+  }
+  
+  resources :users   
  # devise_for :users, :controllers => {:sessions => 'sessions'}
   
 #  devise_scope :user do
@@ -15,9 +38,6 @@ Rubill::Application.routes.draw do
  #    match "signup", :to => "devise/registrations#new"  
  #    match "signin", :to => "devise/sessions#new"  
 #  end
-
-  
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
