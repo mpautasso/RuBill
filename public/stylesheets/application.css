@@ -4,14 +4,14 @@
 }
 
 .header .title{
-  margin-left: 500px;
+  margin-left: 600px;
   color: white;
-  font-size: 24px;
+  font-size: 36px;
   font-family: Arial;
 }
 
 .header .subtitle{
-  margin-left: 500px;
+  margin-left: 600px;
   color: black;
   font-size: 12px;
   font-family: Arial;
@@ -33,17 +33,42 @@
   width: 16%;
   float: left;
   background-color: #F0F0F0;
+  height: 100%;
 }
 
 .main-container .leftbar .title{
-  color: #93474a;
+  color: black;
   font-size: 16px;
   padding: 10px;
 }
 
-
 .main-container .main{
   padding: 10px;
   float: right;
-  width: 80%;
+  width: 81%;
+}
+
+.main-container .leftbar li{
+  border: medium none;
+  list-style-image: none;
+  list-style-type: none;
+  font-size: 10pt;
+  padding: 1px;
+}
+
+.main-container .leftbar li li {
+  font-size: 10pt;
+}
+
+.main-container .leftbar a {
+  text-decoration: none;
+}
+
+.main-container .leftbar li a.selected {
+  color: #4c4338;
+  text-decoration: underline;
+}
+
+.main-container .leftbar a:hover, .main-container .leftbar a:active {
+  text-decoration: underline;
 }

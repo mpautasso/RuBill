@@ -1,11 +1,11 @@
 !!!Strict
 %html
   %head
-    %title="Rubill"
+    %title="RuBill v0.1"
 
     = active_scaffold_includes
 
-    = stylesheet_link_tag 'glip.css', 'sn.css', 'application.css'
+    = stylesheet_link_tag 'glip.css', 'application.css'
     = javascript_include_tag :defaults
     = csrf_meta_tag
     
@@ -23,7 +23,7 @@
       RuBill v0.1
 
     .subtitle
-      developed by MP
+
 
     .flashes
       - flash.each do |name, msg|
@@ -41,9 +41,6 @@
         = yield :info
       
     .main
-      aca va ir los listados...
-
       = yield
-
 
   .footer Copyright &copy; #{Time.now.year} MKE Solutions
