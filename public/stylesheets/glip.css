@@ -5,13 +5,13 @@ body {
   font-size: 12px;
 }
 
-.header {
-  background: #000000;
-/*  float: left; */
-  width: 100%;
-  display: block;
+/*.header {*/
+/*  background: #000000;*/
+/*/*  float: left; */*/
+/*  width: 100%;*/
+/*  display: block;*/
 
-}
+/*}*/
 
 .header-text {
        margin:0;  

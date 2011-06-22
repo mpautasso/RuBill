@@ -1,0 +1,49 @@
+.header{
+  height: 60px;
+  background-color: gray;
+}
+
+.header .title{
+  margin-left: 500px;
+  color: white;
+  font-size: 24px;
+  font-family: Arial;
+}
+
+.header .subtitle{
+  margin-left: 500px;
+  color: black;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.header .flashes{
+  float: right;
+  margin: -45px 10px;
+  width: auto;
+}
+
+.main-container{
+/*  background-color: blue;*/
+  height: 800px;
+  position: relative;
+}
+
+.main-container .leftbar{
+  width: 16%;
+  float: left;
+  background-color: #F0F0F0;
+}
+
+.main-container .leftbar .title{
+  color: #93474a;
+  font-size: 16px;
+  padding: 10px;
+}
+
+
+.main-container .main{
+  padding: 10px;
+  float: right;
+  width: 80%;
+}

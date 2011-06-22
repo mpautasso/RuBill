@@ -5,7 +5,7 @@
 
     = active_scaffold_includes
 
-    = stylesheet_link_tag 'glip.css', 'sn.css'
+    = stylesheet_link_tag 'glip.css', 'sn.css', 'application.css'
     = javascript_include_tag :defaults
     = csrf_meta_tag
     
@@ -17,20 +17,33 @@
     /[if IE]
       = stylesheet_link_tag 'blueprint/ie.css', :media => 'screen, projection'
 
-
 %body
-  - flash.each do |name, msg|
-    = content_tag :div, msg, :id => "flash_#{name}"
-       
+  .header
+    .title
+      RuBill v0.1
 
-    = render_navigation
+    .subtitle
+      developed by MP
 
-  - if current_user
-    Login as: 
-    =current_user.email
-    = link_to "Sign out", destroy_user_session_url
-  - else
-    = link_to "Sign in", new_user_session_url
+    .flashes
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
 
-  = yield
+
+  .main-container
+    .leftbar
+      .title
+        Navigation bar
+
+      = render_navigation
+
+      .info
+        = yield :info
+      
+    .main
+      aca va ir los listados...
+
+      = yield
+
+
   .footer Copyright &copy; #{Time.now.year} MKE Solutions
