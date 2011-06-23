@@ -1,3 +1,3 @@
 class Call < ActiveRecord::Base
-  has_many :items, :as => :item
+  has_many :items, :as => :reference
 end
