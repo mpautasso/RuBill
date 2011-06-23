@@ -8,7 +8,7 @@ Rubill::Application.routes.draw do
     as_routes
   end
 
-  resources :incomming_calls do 
+  resources :calls do 
     as_routes
   end
   
@@ -16,7 +16,15 @@ Rubill::Application.routes.draw do
     as_routes
   end
   
-  resources :items_invoices do 
+  resources :incomming_calls do 
+    as_routes
+  end
+  
+  resources :failed_calls do 
+    as_routes
+  end
+  
+  resources :items do 
     as_routes
   end
   
