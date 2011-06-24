@@ -8,7 +8,7 @@ gem 'rails', '3.0.7'
 gem 'mysql2', '< 0.3'
 
 gem "devise", ">=1.1.7"
-gem "active_scaffold_vho"
+gem "active_scaffold"
 gem "active_scaffold_export", ">= 3.0.6"
 gem "haml", ">= 3.0.18"
 gem "simple-navigation", ">= 3.0.0"
