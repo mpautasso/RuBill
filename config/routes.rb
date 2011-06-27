@@ -6,6 +6,9 @@ Rubill::Application.routes.draw do
   
   resources :invoices do 
     as_routes
+    member do
+      get :get_pdf
+    end
   end
 
   resources :calls do 
