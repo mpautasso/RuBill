@@ -23,6 +23,10 @@
   width: auto;
 }
 
+.header .flashes .notice{
+  font-size: 15;
+}
+
 .main-container{
 /*  background-color: blue;*/
   height: 800px;
