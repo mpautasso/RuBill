@@ -7,5 +7,9 @@ class OutgoingCallsController < ApplicationController
     config.list.columns = base_cols
 
   end
+  
+  def conditions_for_collection 
+    { :device_id => current_user.device.exten}     
+  end 
 
 end 

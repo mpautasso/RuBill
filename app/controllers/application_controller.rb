@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     config.list.per_page = 20     
   end
 
+#  def conditions_for_collection 
+##    if active_scaffold_config && active_scaffold_config.model.column_names.include? "user_id" 
+##      { :user_id => current_user.id} 
+#      
+##    end 
+#    
+#  end 
   
   private
 

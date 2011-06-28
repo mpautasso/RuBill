@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :invoices
-  has_many :devices
+  has_one :device
 end

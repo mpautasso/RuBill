@@ -34,6 +34,7 @@ task :import_calls, :needs => :environment do |task,args|
       outgoing_call.amaflags = row[12]
       outgoing_call.accountcode = row[13]
       outgoing_call.userfield = row[14]
+      outgoing_call.device_id = src_device.exten
       if outgoing_call.save then
         puts "\tCall saved" if DEBUG
         imported = true
@@ -63,6 +64,7 @@ task :import_calls, :needs => :environment do |task,args|
       incomming_call.amaflags = row[12]
       incomming_call.accountcode = row[13]
       incomming_call.userfield = row[14]
+      incomming_call.device_id = dst_device.exten
       if incomming_call.save then
         puts "\tCall saved" if DEBUG
         imported = true
@@ -90,7 +92,7 @@ task :import_calls, :needs => :environment do |task,args|
       failed_call.amaflags = row[12]
       failed_call.accountcode = row[13]
       failed_call.userfield = row[14]
-      failed_call.csv_row = row.join(',')
+   #   failed_call.csv_row = row.join(',')
       failed_call.save
     end
     
