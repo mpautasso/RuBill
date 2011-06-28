@@ -10,10 +10,6 @@ Rubill::Application.routes.draw do
       get :get_pdf
     end
   end
-
-  resources :calls do 
-    as_routes
-  end
   
   resources :outgoing_calls do 
     as_routes
@@ -24,10 +20,6 @@ Rubill::Application.routes.draw do
   end
   
   resources :failed_calls do 
-    as_routes
-  end
-  
-  resources :items do 
     as_routes
   end
   

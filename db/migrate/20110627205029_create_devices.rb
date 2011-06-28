@@ -9,9 +9,16 @@ class CreateDevices < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_column :outgoing_calls, :device_id, :integer
+    add_column :incomming_calls, :device_id, :integer
+    add_column :failed_calls, :device_id, :integer
+
   end
 
   def self.down
     drop_table :devices
+    remove_column :outgoing_calls, :device_id
+    remove_column :incomming_calls, :device_id
+    remove_column :failed_calls, :device_id
   end
 end

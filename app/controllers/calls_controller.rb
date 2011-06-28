@@ -1,9 +1,14 @@
 class CallsController < ApplicationController
   before_filter :authenticate
   
-  active_scaffold :calls do |conf|
-    conf.columns = [:calldate, :clid, :src, :dst]
+  active_scaffold :calls do |config|
+    config.columns = [:calldate, :clid, :src, :dst]
 
-    conf.sti_children = [:outgoing_call,:incomming_call, :failed_call]
+    config.sti_children = [:outgoing_call,:incomming_call, :failed_call]
+
+#    config.columns[:outgoing_device].association.reverse = :call
+#    config.columns[:incomming_device].association.reverse = :call
+#    config.columns[:slugs].association.reverse = :product
+
   end
 end 

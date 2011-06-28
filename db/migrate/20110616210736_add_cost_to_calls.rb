@@ -1,9 +1,9 @@
 class AddCostToCalls < ActiveRecord::Migration
   def self.up
-    add_column :calls, :cost, :integer
+    add_column :outgoing_calls, :cost, :integer
   end
 
   def self.down
-    remove_column :calls, :cost
+    remove_column :outgoing_calls, :cost
   end
 end
