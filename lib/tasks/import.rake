@@ -37,7 +37,8 @@ task :import_calls, :needs => :environment do |task,args|
         puts "\tCall saved" if DEBUG
         imported = true
       else
-        puts "\tERROR: Failed outgoing call from #{src_device.number} at row #{i}"
+        puts "\tError: #{outgoing_call.errors}"
+        puts "\tERROR: Failed outgoing call from #{src_device.exten} at row #{i}"
       end
     end  
     

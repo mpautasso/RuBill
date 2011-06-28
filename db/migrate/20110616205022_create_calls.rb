@@ -19,9 +19,6 @@ class CreateCalls < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :outgoing_calls, :calldate, :unique => true
-    add_index :outgoing_calls, :dst, :unique => true
-
 
 
     create_table :incomming_calls do |t|
@@ -43,8 +40,6 @@ class CreateCalls < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :incomming_calls, :calldate, :unique => true
-    add_index :incomming_calls, :dst, :unique => true
 
 
     create_table :failed_calls do |t|
@@ -66,10 +61,6 @@ class CreateCalls < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :failed_calls, :calldate, :unique => true
-    add_index :failed_calls, :dst, :unique => true
-
-
   end
 
   def self.down

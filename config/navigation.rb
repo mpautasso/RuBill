@@ -17,6 +17,12 @@ SimpleNavigation::Configuration.run do |navigation|
         invoice.item :failed_calls, 'Failed Calls', failed_calls_path
       end
 
+
+      primary.item :outgoing_calls, 'Outgoing Calls', outgoing_calls_path
+      primary.item :incomming_calls, 'Incomming Calls', incomming_calls_path
+      primary.item :failed_calls, 'Failed Calls', failed_calls_path
+
+
       primary.item :logout, 'Logout', destroy_user_session_url 
     end
   end
