@@ -8,8 +8,8 @@ class CallValidator < ActiveModel::Validator
   private
 
     def check(record)
-      calls = OutgoingCall.by_date(record.calldate)
-      !calls.select{|c| c.src == record.src && c.dst == record.dst}
+      calls = record.class.by_date(record.calldate)
+      calls.select{|c| c.src == record.src && c.dst == record.dst}.empty?
     end
 end
 
