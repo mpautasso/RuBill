@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
   before_filter :authenticate
   
-  active_scaffold :device do |conf|
-     global_as_config(conf)
+  active_scaffold :devices do |conf|
+    
   end
 end 
