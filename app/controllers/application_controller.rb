@@ -9,13 +9,12 @@ class ApplicationController < ActionController::Base
     config.list.per_page = 20     
   end
 
-#  def conditions_for_collection 
-##    if active_scaffold_config && active_scaffold_config.model.column_names.include? "user_id" 
-##      { :user_id => current_user.id} 
-#      
-##    end 
-#    
-#  end 
+  def call_rake(task, options = {})
+    options[:rails_env] ||= Rails.env
+    args = options.map { |n, v| "#{n.to_s.upcase}='#{v}'" }
+    system "rake #{task} #{args.join(' ')} --trace 2>&1 >> #{Rails.root}/log/rake.log &"
+  end
+
   
   private
 

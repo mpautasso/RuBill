@@ -6,8 +6,12 @@ desc "Imports calls from a CSV file"
 
 task :import_calls, :needs => :environment do |task,args|
   i = 0
-  
-  path = "db/calls.csv"
+
+#  Rails.logger.info "======================================================"  
+#  Rails.logger.info "Importing calls......"
+#  Rails.logger.info "======================================================"  
+
+  path = "db/test.csv"
   
   CSV.foreach path do |row|
     imported = false

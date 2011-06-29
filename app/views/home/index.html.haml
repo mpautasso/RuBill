@@ -1,12 +1,16 @@
 #block-text.block
   .content
-    %h2.title Home
+    %h2.title Dashboard
   .inner
     %p.first
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+      %b
+        Import Calls
+      %br
+      Clicking on 'Import Calls' will grab calls from db/calls.csv 
+      = button_to "Import Calls", import_path()
 
 - content_for(:info) do
-  Estoy metiendo codigo desde aca en al barra de navegacion
+  Welcome to your dashboard...
+
 
 
