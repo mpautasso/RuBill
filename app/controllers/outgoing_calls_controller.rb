@@ -8,6 +8,7 @@ class OutgoingCallsController < ApplicationController
 
   end
   
+  # Show only current user outgoing calls
   def conditions_for_collection 
     { :device_id => current_user.device.exten}     
   end 

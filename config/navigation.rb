@@ -18,6 +18,8 @@ SimpleNavigation::Configuration.run do |navigation|
       primary.item :incomming_calls, 'Incomming Calls', incomming_calls_path
       
       primary.item :failed_calls, 'Failed Calls', failed_calls_path
+      
+      primary.item :rates, 'Rates', rates_path
 
       primary.item :logout, 'Logout', destroy_user_session_url 
     end

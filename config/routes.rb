@@ -23,6 +23,10 @@ Rubill::Application.routes.draw do
     as_routes
   end
   
+  resources :rates do 
+    as_routes
+  end
+  
   root :to => 'home#index'
   
   devise_for :users, :controllers => {
