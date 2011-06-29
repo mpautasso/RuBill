@@ -3,11 +3,12 @@
     %h2.title Dashboard
   .inner
     %p.first
-      %b
-        Import Calls
-      %br
-      Clicking on 'Import Calls' will grab calls from db/calls.csv 
-      = button_to "Import Calls", import_path()
+      - if current_user.admin?
+        %b
+          Import Calls
+        %br
+        Clicking on 'Import Calls' will grab calls from db/calls.csv 
+        = button_to "Import Calls", import_path()
 
 - content_for(:info) do
   Welcome to your dashboard...

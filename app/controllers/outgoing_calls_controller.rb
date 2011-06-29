@@ -9,8 +9,17 @@ class OutgoingCallsController < ApplicationController
   end
   
   # Show only current user outgoing calls
-  def conditions_for_collection 
-    { :device_id => current_user.device.exten}     
+  def conditions_for_collection
+   return_hash = { :device_id => nil }
+
+   if !current_user.admin?
+      if current_user.device && current_user.device.exten
+        return_hash[:device_id] = current_user.device.exten
+      end
+   else
+     return_hash = { }
+   end
+   return_hash
   end 
 
 end 
