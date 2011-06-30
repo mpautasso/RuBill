@@ -10,46 +10,100 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616220738) do
+ActiveRecord::Schema.define(:version => 20110630191743) do
 
-  create_table "calls", :force => true do |t|
-    t.datetime "calldate",                                  :null => false
-    t.string   "clid",        :limit => 80, :default => "", :null => false
-    t.string   "src",         :limit => 80, :default => "", :null => false
-    t.string   "dst",         :limit => 80, :default => "", :null => false
-    t.string   "dcontext",    :limit => 80, :default => "", :null => false
-    t.string   "channel",     :limit => 80, :default => "", :null => false
-    t.string   "dstchannel",  :limit => 80, :default => "", :null => false
-    t.string   "lastapp",     :limit => 80, :default => "", :null => false
-    t.string   "lastdata",    :limit => 80, :default => "", :null => false
-    t.integer  "duration",                  :default => 0,  :null => false
-    t.integer  "billsec",                   :default => 0,  :null => false
-    t.string   "disposition", :limit => 45, :default => "", :null => false
-    t.integer  "amaflags",                  :default => 0,  :null => false
-    t.string   "accountcode", :limit => 20, :default => "", :null => false
-    t.string   "userfield",                 :default => "", :null => false
+  create_table "devices", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "exten"
+    t.integer  "priority"
+    t.string   "app"
+    t.string   "appd_ata"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cost"
-    t.string   "type"
   end
 
-  add_index "calls", ["accountcode"], :name => "index_calls_on_accountcode", :unique => true
-  add_index "calls", ["calldate"], :name => "index_calls_on_calldate", :unique => true
-  add_index "calls", ["dst"], :name => "index_calls_on_dst", :unique => true
+  create_table "failed_calls", :force => true do |t|
+    t.datetime "calldate"
+    t.string   "clid",        :limit => 80, :default => ""
+    t.string   "src",         :limit => 80, :default => ""
+    t.string   "dst",         :limit => 80, :default => ""
+    t.string   "dcontext",    :limit => 80, :default => ""
+    t.string   "channel",     :limit => 80, :default => ""
+    t.string   "dstchannel",  :limit => 80, :default => ""
+    t.string   "lastapp",     :limit => 80, :default => ""
+    t.string   "lastdata",    :limit => 80, :default => ""
+    t.integer  "duration",                  :default => 0
+    t.integer  "billsec",                   :default => 0
+    t.string   "disposition", :limit => 45, :default => ""
+    t.integer  "amaflags",                  :default => 0
+    t.string   "accountcode", :limit => 20, :default => ""
+    t.string   "userfield",                 :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "invoice_id"
+    t.integer  "device_id"
+  end
+
+  create_table "incomming_calls", :force => true do |t|
+    t.datetime "calldate"
+    t.string   "clid",        :limit => 80, :default => ""
+    t.string   "src",         :limit => 80, :default => ""
+    t.string   "dst",         :limit => 80, :default => ""
+    t.string   "dcontext",    :limit => 80, :default => ""
+    t.string   "channel",     :limit => 80, :default => ""
+    t.string   "dstchannel",  :limit => 80, :default => ""
+    t.string   "lastapp",     :limit => 80, :default => ""
+    t.string   "lastdata",    :limit => 80, :default => ""
+    t.integer  "duration",                  :default => 0
+    t.integer  "billsec",                   :default => 0
+    t.string   "disposition", :limit => 45, :default => ""
+    t.integer  "amaflags",                  :default => 0
+    t.string   "accountcode", :limit => 20, :default => ""
+    t.string   "userfield",                 :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "invoice_id"
+    t.integer  "device_id"
+  end
 
   create_table "invoices", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "from"
+    t.datetime "to"
   end
 
   create_table "items", :force => true do |t|
-    t.string   "item_type"
-    t.integer  "item_id"
+    t.string   "reference_type"
+    t.integer  "reference_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "invoice_id"
+    t.string   "description"
+  end
+
+  create_table "outgoing_calls", :force => true do |t|
+    t.datetime "calldate"
+    t.string   "clid",        :limit => 80, :default => ""
+    t.string   "src",         :limit => 80, :default => ""
+    t.string   "dst",         :limit => 80, :default => ""
+    t.string   "dcontext",    :limit => 80, :default => ""
+    t.string   "channel",     :limit => 80, :default => ""
+    t.string   "dstchannel",  :limit => 80, :default => ""
+    t.string   "lastapp",     :limit => 80, :default => ""
+    t.string   "lastdata",    :limit => 80, :default => ""
+    t.integer  "duration",                  :default => 0
+    t.integer  "billsec",                   :default => 0
+    t.string   "disposition", :limit => 45, :default => ""
+    t.integer  "amaflags",                  :default => 0
+    t.string   "accountcode", :limit => 20, :default => ""
+    t.string   "userfield",                 :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cost"
+    t.integer  "invoice_id"
+    t.string   "device_id"
   end
 
   create_table "rates", :force => true do |t|
@@ -63,21 +117,27 @@ ActiveRecord::Schema.define(:version => 20110616220738) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
-    t.string   "remember_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "fullname"
+    t.boolean  "admin",                                 :default => false
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

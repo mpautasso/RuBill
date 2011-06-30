@@ -1,30 +1,49 @@
-.container.showgrid
-
-  .span-20{:style => "background-color: blue;"}
-    .span-4
-      Invoide #
-
-    .span-8
-      User Name
-
-    .span-8.last
-      Total
-
-  .span-2.prepend-1
-    = link_to "New Invoice", new_invoice_path()
-
-
-  - @invoices.each do |invoice|
+- if !@invoices.empty?
+  .container
     .span-20{:style => "background-color: blue;"}
       .span-4
-        = invoice.id
+        Invoide #
 
       .span-8
-        = invoice.user.email
+        User Name
 
       .span-8.last
-        = invoice.total
+        Total
 
-    
+    .span-2.prepend-1
+      = link_to "New Invoice", new_invoice_path()
+
+
+    - @invoices.each do |invoice|
+      .span-20{:style => "background-color: blue;"}
+        .span-4
+          = invoice.id
+
+        .span-8
+          = invoice.user.email
+
+        .span-8.last
+          = invoice.total
+
+- else
+  There are not invoices saved yet
+
+
+%br
+
+= form_for Invoice.new, :url => filter_calls_invoices_path(), :remote => true do |f|
+
+  = f.label :from, 'from: '
+  = f.date_select :from
+
+  = f.label :to    
+  = f.date_select :to
+
+  = f.submit 'Go'
+
+
   
+
+#calls{:style => "display:none;"}
+  PLACEHOLDER TO FILTER CALLS
 

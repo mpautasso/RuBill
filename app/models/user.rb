@@ -10,9 +10,12 @@ class User < ActiveRecord::Base
   has_many :invoices
   has_one :device
 
-
+  has_many :outgoing_calls, :through => :device
 
   def admin?
     admin
   end
+
+
+
 end

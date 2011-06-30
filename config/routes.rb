@@ -8,7 +8,7 @@ Rubill::Application.routes.draw do
   end
   
   resources :invoices do 
-    as_routes
+    post 'filter_calls', :on => :collection
     member do
       get :get_pdf
     end

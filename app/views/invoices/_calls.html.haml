@@ -1,0 +1,17 @@
+.container
+  .span-20{:style => "background-color: green;"}
+    .span-3
+      src
+
+    .span-3
+      dst
+
+    .span-3
+      duration
+
+    .span-3.last
+      cost
+
+  .span-20
+    = render :partial => 'call', :collection => @calls
+
