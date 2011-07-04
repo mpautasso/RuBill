@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Calldate:
+  = @failed_call.calldate
+%p
+  %b Src:
+  = @failed_call.src
+%p
+  %b Dst:
+  = @failed_call.dst
+%p
+  %b Duration:
+  = @failed_call.duration
+%p
+  %b Billsec:
+  = @failed_call.billsec
+
+= link_to 'Edit', edit_failed_call_path(@failed_call)
+\|
+= link_to 'Back', failed_calls_path

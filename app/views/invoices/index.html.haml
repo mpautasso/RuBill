@@ -26,24 +26,32 @@
           = invoice.total
 
 - else
-  There are not invoices saved yet
+  .test
+    There are not invoices saved yet
 
 
 %br
+.container.showgrid
+  = form_for Invoice.new, :url => filter_calls_invoices_path(), :remote => true do |f|
+    .column
+      .span-6
+        = f.label :from, 'From: '
+        = f.date_select :from
+      .span-6
+        = f.label :to, 'To:'
+        = f.date_select :to
+      .span-2
+        = f.submit 'Go'
 
-= form_for Invoice.new, :url => filter_calls_invoices_path(), :remote => true do |f|
-
-  = f.label :from, 'from: '
-  = f.date_select :from
-
-  = f.label :to    
-  = f.date_select :to
-
-  = f.submit 'Go'
-
-
-  
 
 #calls{:style => "display:none;"}
   PLACEHOLDER TO FILTER CALLS
+
+
+:javascript
+  $(document).ready(function(){
+    $(".test").click( function(){
+      alert('click on test class...');
+    });
+  });
 

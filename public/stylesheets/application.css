@@ -76,3 +76,11 @@
 .main-container .leftbar a:hover, .main-container .leftbar a:active {
   text-decoration: underline;
 }
+
+.even{
+  background-color: #fafafa;
+  }
+  
+  .odd {
+    background-color: #a4a4a4;
+    }

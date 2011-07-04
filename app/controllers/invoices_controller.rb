@@ -1,17 +1,9 @@
 class InvoicesController < ApplicationController
   before_filter :authenticate
   
-#  active_scaffold :invoices do |config|
-#    config.nested.add_link(:outgoing_calls)
-#  end
-
   def index
     @invoices = Invoice.all 
   end
-
-#  def new
-#    @invoice = Invoice.new
-#  end
 
   def filter_calls
     from = build_date_from_params('from', params[:invoice])

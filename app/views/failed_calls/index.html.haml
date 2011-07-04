@@ -1,0 +1,27 @@
+%h1 Listing failed_calls
+
+%table
+  %tr
+    %th Calldate
+    %th Src
+    %th Dst
+    %th Duration
+    %th Billsec
+    %th
+    %th
+    %th
+
+  - @failed_calls.each do |failed_call|
+    %tr
+      %td= failed_call.calldate
+      %td= failed_call.src
+      %td= failed_call.dst
+      %td= failed_call.duration
+      %td= failed_call.billsec
+      %td= link_to 'Show', failed_call
+      %td= link_to 'Edit', edit_failed_call_path(failed_call), :class => 'popme'
+      %td= link_to 'Destroy', failed_call, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Failed call', new_failed_call_path, :class => 'popme'

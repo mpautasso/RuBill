@@ -1,0 +1,2 @@
+module FailedCallsHelper
+end

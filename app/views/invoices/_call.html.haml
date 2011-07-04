@@ -1,4 +1,7 @@
-.span-20
+.span-20{:class => cycle('even', 'odd')}
+  .span-3
+    = call.calldate.to_s(:our_format)
+    
   .span-3
     = call.src
 
