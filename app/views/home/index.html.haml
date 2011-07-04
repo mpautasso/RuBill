@@ -3,13 +3,28 @@
     %h2.title Dashboard
   .inner
     %p.first
-      - if current_user.admin?
-        %b
-          Import Calls
-        %br
-        Clicking on 'Import Calls' will grab calls from db/calls.csv 
-        = button_to "Import Calls", import_path()
+      .column
+        - if current_user.admin?
+          %b
+            Import Calls
+          %br
+          Clicking on 'Import Calls' will grab calls from db/calls.csv 
+          = button_to "Import Calls", import_path(), :id =>'import_button'
+          %br
+          #progressbar.hide
 
 - content_for(:info) do
   Welcome to your dashboard...
 
+:javascript
+
+  $(document).ready(function() {
+    $("#import_button").click( function(){
+      $("#progressbar").show();
+      $("#progressbar").progressbar({ value: 90 });
+    });
+  });
+  
+  $(function() {
+    $( "#progressbar" ).progressbar({value: 30});
+  });

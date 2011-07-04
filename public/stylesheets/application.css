@@ -79,8 +79,26 @@
 
 .even{
   background-color: #fafafa;
-  }
+}
   
-  .odd {
-    background-color: #a4a4a4;
-    }
+.odd {
+  background-color: #a4a4a4;
+}
+ 
+.hide {
+  display: none;
+}
+  
+.head {
+  background-color: grey;
+  color: white;
+  font-size: 11pt; 
+}
+
+tr.head th{
+  text-align: center;
+}
+
+tr.body td{
+  text-align: center;
+}

@@ -16,7 +16,7 @@ class FailedCallsController < ApplicationController
     @failed_call = FailedCall.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render 'show', :layout => false}
       format.xml  { render :xml => @failed_call }
     end
   end

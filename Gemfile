@@ -12,6 +12,7 @@ gem "active_scaffold"
 gem "active_scaffold_export", ">= 3.0.6"
 gem "haml", ">= 3.0.18"
 gem "simple-navigation", ">= 3.0.0"
+gem 'will_paginate',:git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 group :development, :test do
   gem 'capybara'

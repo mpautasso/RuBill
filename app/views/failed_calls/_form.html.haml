@@ -45,19 +45,11 @@
   $(document).ready(function() {
     $("#submit_button").click( function(){
       $("#submit_button").attr('disabled', true);
-
       from_date = $(" #calldate ").val();
-      console.log("Que fecha esta tomando????");
-      console.log(from_date);
-
       input_tag = "<input type =\"hidden\" id=\"failed_call_calldate\" name=\"failed_call[calldate]\" value=\"" + from_date + "\">";
-      console.log("Esta armando bien el tag????"); 
-      console.log(input_tag);
-      
       $("#edit_failed_call_1").append(input_tag);
     });
   });
-
 
   $(function() {
     $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_s('%Y %m %d')}", dateFormat: 'yy-mm-dd'});
