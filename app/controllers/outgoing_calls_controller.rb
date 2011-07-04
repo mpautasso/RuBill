@@ -10,7 +10,7 @@ class OutgoingCallsController < ApplicationController
 
     config.label = "Outgoing Calls"
     
-    base_cols = [:calldate, :src, :dst, :duration, :billsec]
+    base_cols = [:calldate, :src, :dst, :duration, :billsec, :cost]
     config.list.columns = base_cols
     
     columns[:calldate].label = "Call date"
