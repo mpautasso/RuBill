@@ -35,6 +35,7 @@ class FailedCallsController < ApplicationController
   # GET /failed_calls/1/edit
   def edit
     @failed_call = FailedCall.find(params[:id])
+    render 'edit', :layout => false
   end
 
   # POST /failed_calls
