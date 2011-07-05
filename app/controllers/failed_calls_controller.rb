@@ -1,9 +1,12 @@
 class FailedCallsController < ApplicationController
+
+helper_method :sort_column, :sort_direction
+
   # GET /failed_calls
   # GET /failed_calls.xml
   def index
-    @failed_calls = FailedCall.all
-
+#    @failed_calls = FailedCall.paginate :page => params[:page], :order => 'created_at DESC'
+    @failed_calls = FailedCall.order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @failed_calls }
@@ -81,4 +84,16 @@ class FailedCallsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+  def sort_column
+    FailedCall.column_names.include?(params[:sort]) ? params[:sort] : "date_call"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
+  
 end

@@ -16,25 +16,25 @@
   
     .span-4
       .field
-        = f.label :src
+        = f.label :src, "Source"
     .span-8
       = f.text_field :src
 
     .span-4
       .field
-        = f.label :dst
+        = f.label :dst, "Destination"
     .span-8
       = f.text_field :dst
 
     .span-4
       .field
-        = f.label :duration
+        = f.label :duration, "Durations"
     .span-8
       = f.text_field :duration
 
     .span-4
       .field
-        = f.label :billsec
+        = f.label :billsec, "Bill seconds"
     .span-8
       = f.text_field :billsec
 
@@ -52,6 +52,6 @@
   });
 
   $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_s('%Y %m %d')}", dateFormat: 'yy-mm-dd'});
+    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_s('%Y/%m/%d')}", dateFormat: 'yy-mm-dd'});
   });
 
