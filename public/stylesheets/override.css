@@ -104,7 +104,8 @@ a.signup_button {
   font-size: 0.7em;
   color: #444444;
   font-weight: bold;
-  margin-right: 25px;
+  margin-right: 5px;
+  margin-top: 1px;
 }
 
 .footer a {
@@ -166,7 +167,7 @@ div.field, div.actions {
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: -7px;
-  background-color: #c00;
+  background-color: #CC0000;
   color: #fff;
 }
 
@@ -178,6 +179,7 @@ div.field, div.actions {
 
 #error_explanation ul li {
   font-size: 12px;
+  margin-left: 25px;
   list-style: square;
 }
 

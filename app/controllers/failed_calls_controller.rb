@@ -85,10 +85,11 @@ helper_method :sort_column, :sort_direction
     end
   end
   
+  
   private
   
   def sort_column
-    FailedCall.column_names.include?(params[:sort]) ? params[:sort] : "date_call"
+    FailedCall.column_names.include?(params[:sort]) ? params[:sort] : "calldate"
   end
   
   def sort_direction

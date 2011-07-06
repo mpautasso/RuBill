@@ -52,6 +52,6 @@
   });
 
   $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_s('%Y/%m/%d')}", dateFormat: 'yy-mm-dd'});
+    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate}", dateFormat: "yy-mm-dd"});
   });
 

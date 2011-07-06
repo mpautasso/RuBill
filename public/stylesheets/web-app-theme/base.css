@@ -287,7 +287,10 @@ input.checkbox {
 }
 
 .form .fieldWithErrors .error {
+  margin-top: 10px;
+  padding: 2px;
   color: red;
+  display: table;
 }
 
 .form input.text_field, .form textarea.text_area {

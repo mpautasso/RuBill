@@ -13,7 +13,7 @@
 
   - @failed_calls.each do |failed_call|
     %tr.body
-      %td= failed_call.calldate.to_s('%Y %m %d')
+      %td= failed_call.calldate
       %td= failed_call.src
       %td= failed_call.dst
       %td= failed_call.duration
