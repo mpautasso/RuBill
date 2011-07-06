@@ -5,11 +5,11 @@ helper_method :sort_column, :sort_direction
   # GET /failed_calls
   # GET /failed_calls.xml
   def index
-#    @failed_calls = FailedCall.paginate :page => params[:page], :order => 'created_at DESC'
-    @failed_calls = FailedCall.order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @failed_calls = FailedCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @failed_calls }
+      format.js # index.js.haml
     end
   end
 

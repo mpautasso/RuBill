@@ -1,26 +1,14 @@
 %h1 Listing Failed Calls
 
-%table
-  %tr.pretty
-    %th= sortable "calldate", "Call date"
-    %th= sortable "src", "Source"
-    %th= sortable "dst", "Destination"
-    %th= sortable "duration", "Duration"
-    %th= sortable "billsec", "Bill seconds"
-    %th
-    %th= link_to 'New Failed call', new_failed_call_path, :class => 'popme'
-    %th
+= form_tag failed_calls_path, :method => 'get', :id => "failedcalls_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil
+  %p
+  #failed_calls_table
+    = render 'failed_calls'
 
-  - @failed_calls.each do |failed_call|
-    %tr.body
-      %td= failed_call.calldate
-      %td= failed_call.src
-      %td= failed_call.dst
-      %td= failed_call.duration
-      %td= failed_call.billsec
-      %td= link_to 'Edit', edit_failed_call_path(failed_call), :class => 'popme'
-      %td= link_to 'Destroy', failed_call, :confirm => 'Are you sure?', :method => :delete
+  %p
+    = link_to "New Failed Calls", new_failed_call_path
 
-%br
-= will_paginate
 
