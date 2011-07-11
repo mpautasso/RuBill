@@ -1,0 +1,47 @@
+.container
+  = form_for @user do |f|
+    -if @user.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+    .column 
+      .span-4
+        .field
+          = f.label :name
+      .span-8
+        = f.text_field :name
+  
+    .column
+      .span-4
+        .field
+          = f.label :fullname
+      .span-8
+        = f.text_field :fullname
+
+    .column
+      .span-4
+        .field
+          = f.label :email
+      .span-8
+        = f.text_field :email
+
+    .column
+      .span-4
+        .field
+          = f.label :password
+      .span-8
+        = f.password_field :password
+
+    .column 
+      .span-4
+        .field
+          = f.label :password_confirmation
+      .span-8
+        = f.password_field :password_confirmation
+    
+    .column 
+      .span-12
+        .actions{:style => 'float:right;'}
+          = f.submit 'Save', :id => 'submit_button' 

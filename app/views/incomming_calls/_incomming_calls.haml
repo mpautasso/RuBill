@@ -1,0 +1,30 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+
+%table
+  %tr.pretty
+    %th= sortable "calldate", "Call date"
+    %th= sortable "src", "Source"
+    %th= sortable "dst", "Destination"
+    %th= sortable "duration", "Duration"
+    %th= sortable "billsec", "Bill seconds"
+    %th
+    %th= link_to 'New incomming Call', new_incomming_call_path, :class => 'popme'
+
+  - @incomming_calls.each do |incomming_call|
+    %tr.body
+      %td= incomming_call.calldate
+      %td= incomming_call.src
+      %td= incomming_call.dst
+      %td= incomming_call.duration
+      %td= incomming_call.billsec
+      %td= link_to 'Edit', edit_incomming_call_path(incomming_call), :class => 'popme'
+      %td= link_to 'Destroy', incomming_call, :confirm => 'Are you sure?', :method => :delete
+      
+%br
+  = will_paginate
+  
+:javascript
+  $(function() {
+    $("a.popme").fancybox();
+  });

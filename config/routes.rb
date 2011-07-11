@@ -33,7 +33,8 @@ Rubill::Application.routes.draw do
   root :to => 'home#index'
   
   devise_for :users, :controllers => {
-    :sessions => 'sessions'
+    :sessions => 'sessions',
+    :registrations => 'registrations'
   }
   
   resources :users do 

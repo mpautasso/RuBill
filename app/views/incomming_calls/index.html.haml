@@ -1,0 +1,12 @@
+%h1 Listing Incomming Calls
+
+= form_tag incomming_calls_path, :method => 'get', :id => "incommingcalls_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil
+  %p
+  #incomming_calls_table
+    = render 'incomming_calls'
+
+  %p
+    = link_to "New incomming Calls", new_incomming_call_path, :class => 'popme'

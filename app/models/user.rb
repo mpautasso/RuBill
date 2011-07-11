@@ -11,11 +11,19 @@ class User < ActiveRecord::Base
   has_one :device
 
   has_many :outgoing_calls, :through => :device
+  has_many :incomming_calls, :through => :device
+  has_many :failed_calls, :through => :device
 
   def admin?
     admin
   end
-
-
-
+  
+  def self.search(search)
+    if search
+      where('fullname LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
 end

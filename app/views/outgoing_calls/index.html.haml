@@ -1,0 +1,12 @@
+%h1 Listing Outgoing Calls
+
+= form_tag outgoing_calls_path, :method => 'get', :id => "outgoingcalls_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :name => nil
+  %p
+  #outgoing_calls_table
+    = render 'outgoing_calls'
+
+  %p
+    = link_to "New Outgoing Calls", new_outgoing_call_path, :class => 'popme'

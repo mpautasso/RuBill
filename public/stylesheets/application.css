@@ -116,3 +116,11 @@ tr.body td{
 .pretty th .desc {
   background-image: url(/images/down_arrow.gif);
 }
+
+#calldate{
+  font-size: 11px;
+}
+
+#timedate{
+  font-size: 9px;
+  }

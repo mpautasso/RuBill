@@ -1,13 +1,11 @@
 .container
-  = form_for @failed_call do |f|
-    -if @failed_call.errors.any?
+  = form_for @incomming_call do |f|
+    -if @incomming_call.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@failed_call.errors.count, "error")} prohibited this failed_call from being saved:"
+        %h2= "#{pluralize(@incomming_call.errors.count, "error")} prohibited this incomming_call from being saved:"
         %ul
-          - @failed_call.errors.full_messages.each do |msg|
+          - @incomming_call.errors.full_messages.each do |msg|
             %li= msg
-
-    #hidden_fields
 
     .column
       .span-4
@@ -15,7 +13,6 @@
           = f.label :calldate
       .span-8
         #calldate
-        = select_time(@failed_call.calldate, :include_seconds => true)
   
     .span-4
       .field
@@ -44,19 +41,17 @@
     .actions
       = f.submit 'Save', :id => 'submit_button'
 
-
 :javascript
   $(document).ready(function() {
     $("#submit_button").click( function(){
       $("#submit_button").attr('disabled', true);
       from_date = $(" #calldate ").val();
-      input_tag = "<input type =\"hidden\" id=\"failed_call_calldate\" name=\"failed_call[calldate]\" value=\"" + from_date + "\">";
-      $("#hidden_fields").append(input_tag);
+      input_tag = "<input type =\"hidden\" id=\"incomming_call_calldate\" name=\"incomming_call[calldate]\" value=\"" + from_date + "\">";
+      $("#edit_incomming_call_1").append(input_tag);
     });
   });
-  
-  
+
   $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_date.to_s}", dateFormat: "yy-mm-dd"});
+    $('#calldate').datepicker({ inline: true, defaultDate: "#{@incomming_call.calldate}", dateFormat: "yy-mm-dd"});
   });
 

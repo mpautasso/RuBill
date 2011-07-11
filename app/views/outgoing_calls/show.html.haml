@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Calldate:
+  = @outgoing_call.calldate
+%p
+  %b Clid:
+  = @outgoing_call.clid
+%p
+  %b Src:
+  = @outgoing_call.src
+%p
+  %b Dst:
+  = @outgoing_call.dst
+%p
+  %b Duration:
+  = @outgoing_call.duration
+%p
+  %b Billsec:
+  = @outgoing_call.billsec
+
+= link_to 'Edit', edit_outgoing_call_path(@outgoing_call)
+\|
+= link_to 'Back', outgoing_calls_path

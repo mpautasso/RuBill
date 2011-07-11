@@ -1,6 +1,6 @@
 class OutgoingCall < ActiveRecord::Base
-  belongs_to :device#, :foreign_key => 'exten', :inverse_of => :outgoing_calls
-  belongs_to :invoice
+  belongs_to :device, :primary_key => 'src', :foreign_key => 'exten', :inverse_of => :outgoing_calls
+  belongs_to :invoice      
   belongs_to :rate
   
   before_validation :rating, :on => :create
@@ -35,4 +35,13 @@ class OutgoingCall < ActiveRecord::Base
 
     result.empty? ? nil : result.first 
   end
+  
+  def self.search(search)
+    if search
+      where('dst LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
 end
