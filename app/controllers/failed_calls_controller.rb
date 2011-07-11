@@ -61,7 +61,6 @@ helper_method :sort_column, :sort_direction
   # PUT /failed_calls/1.xml
   def update
     @failed_call = FailedCall.find(params[:id])
-    
 
     respond_to do |format|
       if @failed_call.update_attributes(params[:failed_call])

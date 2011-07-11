@@ -1,0 +1,30 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+ 
+%table
+  %tr.pretty
+    %th=sortable "name"
+    %th=sortable "fullname"
+    %th=sortable "email"
+    %th=sortable "admin"
+    %th
+    %th
+    %th= link_to 'New User', new_user_path, :class => 'popme'
+
+  - @users.each do |user|
+    %tr.body
+      %td= user.name
+      %td= user.fullname
+      %td= user.email
+      %td= user.admin
+      %td
+      %td= link_to 'Edit', edit_user_path(user), :class => 'popme'
+      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete 
+
+%br
+  = will_paginate
+  
+:javascript
+  $(function() {
+    $("a.popme").fancybox();
+  });

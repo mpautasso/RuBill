@@ -1,25 +1,12 @@
-%h1 Listing users
+%h1 Listing Users
 
-%table
-  %tr
-    %th Name
-    %th Fullname
-    %th Email
-    %th Admin
-    %th
-    %th
-    %th
+= form_tag users_path, :method => 'get', :id => "users_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :fullname => nil
+  %p
+  #users_table
+    = render 'users'
 
-  - @users.each do |user|
-    %tr
-      %td= user.name
-      %td= user.fullname
-      %td= user.email
-      %td= user.admin
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New User', new_user_path
+  %p
+    = link_to 'New User', new_user_path, :class => 'popme'

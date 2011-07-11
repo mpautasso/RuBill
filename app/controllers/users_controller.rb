@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
+
+helper_method :sort_column, :sort_direction
+
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
+      format.js # index.js.haml
     end
   end
 
@@ -27,14 +31,16 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :template => 'users/new', :layout => false}
       format.xml  { render :xml => @user }
     end
+
   end
 
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    render 'edit', :layout => false
   end
 
   # POST /users
@@ -79,5 +85,15 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+  end
+  
+ private
+  
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "fullname"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
