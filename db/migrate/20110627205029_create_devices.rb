@@ -5,7 +5,7 @@ class CreateDevices < ActiveRecord::Migration
       t.string :exten
       t.integer :priority
       t.string :app
-      t.string :appd_ata
+      t.string :app_data
 
       t.timestamps
     end

@@ -9,4 +9,12 @@ class Device < ActiveRecord::Base
     exten
   end
 
+  def self.search(search)
+    if search
+      where('exten LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
 end

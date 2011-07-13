@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Prefix:
+  = @rate.prefix
+%p
+  %b Initial time:
+  = @rate.initial_time
+%p
+  %b Initial cost:
+  = @rate.initial_cost
+%p
+  %b Interval:
+  = @rate.interval
+%p
+  %b Interval cost:
+  = @rate.interval_cost
+
+= link_to 'Edit', edit_rate_path(@rate)
+\|
+= link_to 'Back', rates_path

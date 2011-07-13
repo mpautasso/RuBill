@@ -1,6 +1,8 @@
 #block-text.block
   .content
     %h2.title Dashboard
+  
+  RuBill is a simple interface to administrate the billing costs.
   .inner
     %p.first
       .column
@@ -9,9 +11,15 @@
             Import Calls
           %br
           Clicking on 'Import Calls' will grab calls from db/calls.csv 
+          %br
+          %br
           = button_to "Import Calls", import_path(), :id =>'import_button'
           %br
           #progressbar.hide
+      .append-12
+        .prepend-13
+          = link_to logo
+
 
 - content_for(:info) do
   Welcome to your dashboard...

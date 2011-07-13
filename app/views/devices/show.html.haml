@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @device.user_id
+%p
+  %b Exten:
+  = @device.exten
+%p
+  %b Priority:
+  = @device.priority
+%p
+  %b App:
+  = @device.app
+%p
+  %b App data:
+  = @device.app_data
+
+= link_to 'Edit', edit_device_path(@device)
+\|
+= link_to 'Back', devices_path

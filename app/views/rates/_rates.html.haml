@@ -1,0 +1,32 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+ 
+%table
+  %tr.pretty.ajaxifyme
+    %th=sortable "prefix"
+    %th=sortable "initial_time"
+    %th=sortable "initial_cost"
+    %th=sortable "interval_time"
+    %th=sortable "interval_cost"
+    %th
+    %th
+    %th= link_to 'New Rate', new_rate_path, :class => 'popme'
+
+  - @rates.each do |rate|
+    %tr.body
+      %td= rate.prefix
+      %td= rate.initial_time
+      %td= rate.initial_cost
+      %td= rate.interval_time
+      %td= rate.interval_cost
+      %td
+      %td= link_to 'Edit', edit_rate_path(rate), :class => 'popme'
+      %td= link_to 'Destroy', rate, :confirm => 'Are you sure?', :method => :delete 
+
+%br
+  = will_paginate
+  
+:javascript
+  $(function() {
+    $("a.popme").fancybox();
+  });

@@ -1,0 +1,32 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+ 
+%table
+  %tr.pretty.ajaxifyme
+    %th=sortable "user_id", "User"
+    %th=sortable "exten"
+    %th=sortable "priority"
+    %th=sortable "app"
+    %th=sortable "app_data"
+    %th
+    %th
+    %th= link_to 'New Device', new_device_path, :class => 'popme'
+
+  - @devices.each do |device|
+    %tr.body
+      %td= device.user_id
+      %td= device.exten
+      %td= device.priority
+      %td= device.app
+      %td= device.app_data
+      %td
+      %td= link_to 'Edit', edit_device_path(device), :class => 'popme'
+      %td= link_to 'Destroy', device, :confirm => 'Are you sure?', :method => :delete 
+
+%br
+  = will_paginate
+  
+:javascript
+  $(function() {
+    $("a.popme").fancybox();
+  });

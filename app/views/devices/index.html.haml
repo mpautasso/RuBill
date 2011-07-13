@@ -1,0 +1,12 @@
+%h1 Listing Devices
+
+= form_tag devices_path, :method => 'get', :id => "devices_search" do
+  %p
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", :exten => nil
+  %p
+  #devices_table
+    = render 'devices'
+
+  %p
+    = link_to 'New Device', new_device_path, :class => 'popme'

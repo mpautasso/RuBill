@@ -29,6 +29,7 @@ helper_method :sort_column, :sort_direction
   # GET /users/new.xml
   def new
     @user = User.new
+    session[:user_return_to] = users_path
 
     respond_to do |format|
       format.html { render :template => 'users/new', :layout => false}

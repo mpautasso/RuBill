@@ -2,7 +2,7 @@
 = hidden_field_tag :sort, params[:sort]
 
 %table
-  %tr.pretty
+  %tr.pretty.ajaxifyme
     %th= sortable "calldate", "Call date"
     %th= sortable "src", "Source"
     %th= sortable "dst", "Destination"

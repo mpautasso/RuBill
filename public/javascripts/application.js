@@ -3,7 +3,7 @@
 
 $(function() {
   // Sorting and pagination links.  
-  $('#failed_calls th a, #failed_calls .pagination a').live('click',   
+  $('tr.ajaxifyme th a, .pagination a').live('click',   
     function () {  
       $.getScript(this.href);  
       return false;  
@@ -11,9 +11,9 @@ $(function() {
   );  
   
   // Search form.  
-  $('#failedcalls_search').submit(function () {  
-    console.log(this.action);
-    console.log($(this).serialize());
+  $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search').submit(function () {  
+    //console.log(this.action);
+    //console.log($(this).serialize());
     $.get(this.action, $(this).serialize(), null, 'script');  
     return false;  
   });  
