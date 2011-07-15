@@ -50,7 +50,8 @@ class User < ActiveRecord::Base
                     :uniqueness => { :case_sensitive => false }
                      
   validates :password,  :presence      => true,
-                        :confirmation => true
+                        :confirmation => true, 
+                        :if => :password_required?
   
 
   def admin?
@@ -64,5 +65,9 @@ class User < ActiveRecord::Base
       scoped
     end
   end
-  
+
+private
+ def password_required?
+   !password.nil? || !password_confirmation.nil?
+  end
 end

@@ -22,7 +22,8 @@ class Device < ActiveRecord::Base
   validates :exten, :presence => true,
                     :uniqueness => true
   
-  validates :user_id, :presence => true
+  validates :user, :presence => true
+  validates_associated :user
   
   def to_s
     exten
