@@ -5,4 +5,6 @@
   %td= user.admin
   %td
   %td= link_to 'Edit', edit_user_path(user), :class => 'popme'
-  %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete 
+  %td= link_to 'Destroy', user, :confirm => 'Are you sure?', |
+                                :method => :delete, |
+                                :remote => true
