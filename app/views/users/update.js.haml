@@ -1,0 +1,11 @@
+$.fancybox.close();
+
+$("#news").html("User was updated succesfully");
+
+$('#news').delay(500).fadeIn(2500, function() {
+$(this).delay(1500).fadeOut(4000);
+});
+
+$("tr#user_#{@user.id}").remove();
+$("table#users tr:first").after("#{escape_javascript(render(:partial => @user))}");
+
