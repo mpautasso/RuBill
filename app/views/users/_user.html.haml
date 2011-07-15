@@ -1,0 +1,8 @@
+%tr.body
+  %td= user.last_name
+  %td= user.name
+  %td= user.email
+  %td= user.admin
+  %td
+  %td= link_to 'Edit', edit_user_path(user), :class => 'popme'
+  %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete 

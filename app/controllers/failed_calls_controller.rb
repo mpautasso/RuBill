@@ -1,6 +1,7 @@
 class FailedCallsController < ApplicationController
 
-helper_method :sort_column, :sort_direction
+  before_filter :authenticate
+  helper_method :sort_column, :sort_direction
 
   # GET /failed_calls
   # GET /failed_calls.xml

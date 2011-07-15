@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: outgoing_calls
+#
+#  id          :integer(4)      not null, primary key
+#  calldate    :datetime
+#  clid        :string(80)      default("")
+#  src         :string(80)      default("")
+#  dst         :string(80)      default("")
+#  dcontext    :string(80)      default("")
+#  channel     :string(80)      default("")
+#  dstchannel  :string(80)      default("")
+#  lastapp     :string(80)      default("")
+#  lastdata    :string(80)      default("")
+#  duration    :integer(4)      default(0)
+#  billsec     :integer(4)      default(0)
+#  disposition :string(45)      default("")
+#  amaflags    :integer(4)      default(0)
+#  accountcode :string(20)      default("")
+#  userfield   :string(255)     default("")
+#  created_at  :datetime
+#  updated_at  :datetime
+#  cost        :integer(4)
+#  invoice_id  :integer(4)
+#  device_id   :string(255)
+#  rate_id     :integer(4)
+#
+
 class OutgoingCall < ActiveRecord::Base
   belongs_to :device, :primary_key => 'src', :foreign_key => 'exten', :inverse_of => :outgoing_calls
   belongs_to :invoice      

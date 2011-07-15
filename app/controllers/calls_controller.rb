@@ -1,4 +1,5 @@
 class CallsController < ApplicationController
+  
   before_filter :authenticate
   
   active_scaffold :calls do |config|

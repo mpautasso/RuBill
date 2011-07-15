@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-
-helper_method :sort_column, :sort_direction
+  
+  before_filter :authenticate
+  helper_method :sort_column, :sort_direction
 
   # GET /users
   # GET /users.xml
@@ -48,12 +49,15 @@ helper_method :sort_column, :sort_direction
   # POST /users.xml
   def create
     @user = User.new(params[:user])
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
 
     respond_to do |format|
       if @user.save
+        format.js
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
@@ -91,7 +95,7 @@ helper_method :sort_column, :sort_direction
  private
   
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "fullname"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
   end
   
   def sort_direction

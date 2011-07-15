@@ -124,3 +124,21 @@ tr.body td{
 #timedate{
   font-size: 9px;
   }
+  
+#news{
+  margin-left: 400px;
+  float: right;
+  padding: 5px;
+  width: 400px;
+  background-color: #0ff;
+  color: blue;
+  border: 2px solid blue;
+  font: bold 12px Verdana, Helvetica, Arial;
+   text-align: center;
+}
+
+.round{
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}

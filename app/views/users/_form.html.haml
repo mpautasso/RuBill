@@ -1,12 +1,7 @@
-.container
-  = form_for @user do |f|
-    = hidden_field_tag 'user_return_to', users_path
-    -if @user.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-        %ul
-          - @user.errors.full_messages.each do |msg|
-            %li= msg
+.container{:style => "width:600px"}
+  = form_for @user, :url => create_user_path, :remote => true do |f|
+    #errors
+    
     .column 
       .span-4
         .field
@@ -17,9 +12,9 @@
     .column
       .span-4
         .field
-          = f.label :fullname
+          = f.label :lastname
       .span-8
-        = f.text_field :fullname
+        = f.text_field :lastname
 
     .column
       .span-4

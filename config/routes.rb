@@ -1,6 +1,5 @@
 Rubill::Application.routes.draw do
 
-  
   match "import", :to => "home#import", :via => "post"
  
   resources :rates do 
@@ -32,14 +31,14 @@ Rubill::Application.routes.draw do
   
   root :to => 'home#index'
   
+  match 'create_user', :to => "users#create", :via => "post"
+  
   devise_for :users, :controllers => {
     :sessions => 'sessions',
     :registrations => 'registrations'
   }
   
-  resources :users do 
-    as_routes
-  end
+  resources :users 
   
   resources :devices do 
     as_routes

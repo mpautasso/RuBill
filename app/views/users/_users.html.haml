@@ -3,23 +3,15 @@
  
 %table
   %tr.pretty.ajaxifyme
-    %th=sortable "fullname"
+    %th=sortable "last_name", "Lastname"
     %th=sortable "name"
     %th=sortable "email"
     %th=sortable "admin"
     %th
     %th
-    %th= link_to 'New User', new_user_path, :class => 'popme'
-
-  - @users.each do |user|
-    %tr.body
-      %td= user.fullname
-      %td= user.name
-      %td= user.email
-      %td= user.admin
-      %td
-      %td= link_to 'Edit', edit_user_path(user), :class => 'popme'
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete 
+    %th= link_to 'New User', new_user_path(:format => 'html'), :class => 'popme'
+ 
+  = render :partial => 'user', :collection => @users
 
 %br
   = will_paginate

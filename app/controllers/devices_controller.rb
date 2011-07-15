@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
 
-helper_method :sort_column, :sort_direction
+  before_filter :authenticate
+  helper_method :sort_column, :sort_direction
 
   # GET /devices
   # GET /devices.xml

@@ -1,6 +1,7 @@
 class IncommingCallsController < ApplicationController
 
-helper_method :sort_column, :sort_direction
+  before_filter :authenticate
+  helper_method :sort_column, :sort_direction
 
   # GET /incomming_calls
   # GET /incomming_calls.xml
