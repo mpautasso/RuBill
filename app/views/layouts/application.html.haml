@@ -32,15 +32,17 @@
 
 %body
   .header
+    #news.round{:style => 'display:none;'}
     .title
       RuBill v0.1
 
     .subtitle
-
+      = yield :subtitle
 
     .flashes
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
+
 
 
   .main-container
@@ -49,7 +51,7 @@
         Navigation bar
 
       = render_navigation
-    
+
     .main
       = yield
 

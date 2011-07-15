@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :last_name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :last_name, :email, :password, :password_confirmation
+  attr_accessible :remember_me
 
   has_many :invoices
   has_one :device
@@ -52,7 +53,6 @@ class User < ActiveRecord::Base
   validates :password,  :presence      => true,
                         :confirmation => true, 
                         :if => :password_required?
-  
 
   def admin?
     admin
@@ -68,6 +68,6 @@ class User < ActiveRecord::Base
 
 private
  def password_required?
-   !password.nil? || !password_confirmation.nil?
+     !password.blank? || !password_confirmation.blank?
   end
 end

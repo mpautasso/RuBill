@@ -126,7 +126,7 @@ tr.body td{
   }
   
 #news{
-  margin-left: 400px;
+  margin: 15px 5px;
   float: right;
   padding: 5px;
   width: 400px;
@@ -134,7 +134,7 @@ tr.body td{
   color: blue;
   border: 2px solid blue;
   font: bold 12px Verdana, Helvetica, Arial;
-   text-align: center;
+  text-align: center;
 }
 
 .round{

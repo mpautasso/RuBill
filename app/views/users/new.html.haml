@@ -1,3 +1,7 @@
 %h1 New user
 
-= render 'form'
+.container{:style => "width:600px"}
+  = form_for @user, :url => create_user_path, :remote => true do |f|
+    #errors
+
+    = render :partial => 'form', :locals => {:f => f}

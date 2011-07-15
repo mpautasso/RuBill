@@ -1,7 +1,8 @@
 %h1 Editing user
 
-= render 'form'
+.container{:style => "width:600px"}
+  = form_for @user, :url => user_path(@user), :remote => true do |f|
+    #errors
 
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+    = render :partial => 'form', :locals => {:f => f}
+
