@@ -1,7 +1,7 @@
 = hidden_field_tag :direction, params[:direction]
 = hidden_field_tag :sort, params[:sort]
  
-%table
+%table#users
   %tr.pretty.ajaxifyme
     %th=sortable "last_name", "Lastname"
     %th=sortable "name"
@@ -10,7 +10,7 @@
     %th
     %th
     %th= link_to 'New User', new_user_path(:format => 'html'), :class => 'popme'
- 
+
   = render :partial => 'user', :collection => @users
 
 %br
