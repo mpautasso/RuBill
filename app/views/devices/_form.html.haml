@@ -1,4 +1,4 @@
-.container
+.container{:style => "width:500px;"}
   = form_for @device do |f|
     -if @device.errors.any?
       #error_explanation
@@ -12,7 +12,7 @@
         .field
           = f.label :user_id
       .span-8
-        = f.select 'user_id', Device.all.map(&:user_id)
+        = f.select 'user_id', User.all.collect{|x| [x.name, x.id]}
 
     .column 
       .span-4
@@ -43,6 +43,5 @@
         = f.text_field :app_data
 
     .column 
-      .span-12
-        .actions{:style => 'float:right;'}
-          = f.submit 'Save', :id => 'submit_button'
+      .prepend-9
+        = f.submit 'Save', :id => 'submit_button'
