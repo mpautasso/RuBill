@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
-before_filter :authenticate  
-layout 'application'
+  before_filter :authenticate  
+  layout 'application'
   
   before_filter :authenticate
   

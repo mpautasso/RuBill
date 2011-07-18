@@ -1,25 +1,29 @@
 #block-text.block
   .content
-    %h2.title Dashboard
-  
-  RuBill is a simple interface to administrate the billing costs.
+    %h2.title Welcome to Rubill
+
+  %p
+    RuBill is a simple interface to administrate your billing calls.
+
   .inner
     %p.first
+      %br
+      %br
       .column
         - if current_user.admin?
-          %b
-            Import Calls
-          %br
-          Clicking on 'Import Calls' will grab calls from db/calls.csv 
-          %br
-          %br
-          = button_to "Import Calls", import_path(), :id =>'import_button'
-          %br
-          #progressbar.hide
-      .append-12
-        .prepend-13
-          = link_to logo
+          .span-4
+            = image_tag ('database-import.png')
 
+          .span-10
+            %h2
+              Import Calls
+            Clicking on 'Import Calls' will grab calls from db/calls.csv 
+            %br
+            = button_to "Import Calls", import_path(), :id =>'import_button'
+            = image_tag ('spin_blue.gif'), :style => "display:none;", :id => "import_spin"
+
+          .span-8
+            = link_to logo
 
 - content_for(:info) do
   Welcome to your dashboard...
@@ -28,11 +32,18 @@
 
   $(document).ready(function() {
     $("#import_button").click( function(){
-      $("#progressbar").show();
-      $("#progressbar").progressbar({ value: 90 });
+      $.ajax({
+          type: "POST",
+          url: '/import',
+          beforeSend: function(){
+            $("#import_spin").show();
+          },
+          complete: function() {
+            $("#import_spin").hide();
+          }
+      });
+
+      return false;
     });
   });
-  
-  $(function() {
-    $( "#progressbar" ).progressbar({value: 30});
-  });
+

@@ -50,7 +50,7 @@ class OutgoingCall < ActiveRecord::Base
 
     if rate
       if (self.billsec > 0) then
-        intervals = ((self.billsec - rate.initial_time).to_f / rate.interval).ceil
+        intervals = ((self.billsec - rate.initial_time).to_f / rate.interval_time).ceil
         self.cost = rate.initial_cost + intervals * rate.interval_cost
       end
     end
