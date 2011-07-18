@@ -9,7 +9,7 @@
     %th=sortable "admin"
     %th
     %th
-    %th= link_to image_tag("my_images/add.png", :alt => "New"), new_user_path(:format => 'html'), :class => 'popme'
+    %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_user_path(:format => 'html'), :class => 'popme'
 
   = render :partial => 'user', :collection => @users
 

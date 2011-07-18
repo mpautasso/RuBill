@@ -14,7 +14,29 @@ $(function() {
   $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search').submit(function () {  
     //console.log(this.action);
     //console.log($(this).serialize());
-    $.get(this.action, $(this).serialize(), null, 'script');  
-    return false;  
+
+//    $.get(this.action, $(this).serialize(), null, 'script');
+
+    $.ajax({
+        type: "GET",
+        url: this.action,
+        data: $(this).serialize(),
+        beforeSend: function(){
+            if ($("#search").attr('value') == ''){
+              alert("You are looking for with an empty filter");
+              return false;
+            }
+            $("#spin").show();
+        },
+        complete: function() {
+            $("#spin").hide();
+        }
+      });
+
+    return false;
   });  
 });  
+
+
+
+
