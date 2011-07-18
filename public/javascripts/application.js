@@ -19,6 +19,7 @@ $(function() {
 
     $.ajax({
         type: "GET",
+        dataType: 'script',
         url: this.action,
         data: $(this).serialize(),
         beforeSend: function(){
