@@ -8,3 +8,6 @@ $(this).delay(1500).fadeOut(4000);
 
 $("table#users tr:first").after("#{escape_javascript(render(:partial => @user))}");
 
+$(function() {
+$("a.popme").fancybox({'padding':  7});
+});

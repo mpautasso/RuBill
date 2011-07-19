@@ -47,13 +47,15 @@ class OutgoingCallsController < ApplicationController
   # POST /outgoing_calls
   # POST /outgoing_calls.xml
   def create
-    @outgoing_call = OutgoingCall.new(params[:outgoing_call])
-
+#    @outgoing_call = OutgoingCall.new(params[:outgoing_call])
+    @outgoing_call = OutgoingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       if @outgoing_call.save
+        format.js
         format.html { redirect_to(@outgoing_call, :notice => 'Outgoing call was successfully created.') }
         format.xml  { render :xml => @outgoing_call, :status => :created, :location => @outgoing_call }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @outgoing_call.errors, :status => :unprocessable_entity }
       end
@@ -67,9 +69,11 @@ class OutgoingCallsController < ApplicationController
 
     respond_to do |format|
       if @outgoing_call.update_attributes(params[:outgoing_call])
+        format.js
         format.html { redirect_to(@outgoing_call, :notice => 'Outgoing call was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.js { render :error }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @outgoing_call.errors, :status => :unprocessable_entity }
       end
@@ -83,6 +87,7 @@ class OutgoingCallsController < ApplicationController
     @outgoing_call.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(outgoing_calls_url) }
       format.xml  { head :ok }
     end

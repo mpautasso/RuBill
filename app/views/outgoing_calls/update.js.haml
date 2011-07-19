@@ -1,0 +1,13 @@
+$.fancybox.close();
+
+$("#news").html("Outgoing call was updated succesfully");
+
+$('#news').delay(500).fadeIn(2500, function() {
+$(this).delay(1500).fadeOut(4000);
+});
+
+$("tr#outgoingcall_#{@outgoing_call.id}").replaceWith("#{escape_javascript(render(:partial => @outgoing_call))}");
+
+$(function() {
+$("a.popme").fancybox({'padding':  7});
+});

@@ -102,13 +102,13 @@ tr.pretty th{
   text-align: center;
 }
 
-#users tr.body:hover{
+#users tr.body:hover, #outgoingcalls tr.body:hover{
 //  background-color: orange;
   background-color: #FAAC58;
   color: blue;
 }
 
-#users tr th a{
+#users tr th a, #outgoingcalls tr th a{
   text-decoration: none;
 }
 

@@ -1,4 +1,4 @@
-%tr{:id => "user_#{user.id}", :class => "body #{cycle('odd','even')}"}
+%tr{:id => "user_#{user.id}", :class => "body #{cycle(:odd, :even)}"}
   %td= user.last_name
   %td= user.name
   %td= user.email
