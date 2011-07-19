@@ -19,8 +19,10 @@
 
 .header .flashes{
   float: right;
-  margin: -45px 10px;
+  margin: -30px 10px;
   width: auto;
+  font: 12px Verdana, Helvetica, Arial;
+  color: white;
 }
 
 .header .flashes .notice{
@@ -142,9 +144,9 @@ tr.body td{
   float: right;
   padding: 5px;
   width: 400px;
-  background-color: #0ff;
+  background-color: #A4E7A0;
   color: blue;
-  border: 2px solid blue;
+  border: 1px solid #26722D;
   font: bold 12px Verdana, Helvetica, Arial;
   text-align: center;
 }
@@ -155,3 +157,33 @@ tr.body td{
   border-radius: 5px;
 }
 
+#header-popup h1{
+  background-color: gray;
+  color: white;
+  font: bold;
+  padding: 0px;
+  margin: 0px 0px;
+}
+  
+#flash-login .login{
+  color: white;
+  font: 12px Verdana, Helvetica, Arial;
+  width: 100%;
+  float: left;
+  background-color: gray;
+  height: 90%;
+  margin-left: -570px;
+  margin-top: -35px;
+}
+  
+#search {
+float: right;
+margin-top: -50px;
+margin-right: 80px;
+}
+
+#submit .button{
+float: right;
+margin-top: -52px;
+margin-right: 0px;
+}

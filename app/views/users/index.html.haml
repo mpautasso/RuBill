@@ -3,7 +3,9 @@
 = form_tag users_path, :method => 'get', :id => "users_search" do
   %p
     = text_field_tag :search, params[:search]
-    = submit_tag "Search", :last_name => nil
+    #submit
+      .button
+        = submit_tag "Search", :last_name => nil
   %p
   #users_table
     = render 'users'

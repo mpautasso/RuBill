@@ -35,16 +35,19 @@
     #news.round{:style => 'display:none;'}
     .title
       RuBill v0.1
-
+      #flash-login
+        .login
+          = current_user.last_name + ' ' + current_user.name         
+          %br
+          = current_user.email
+              
     .subtitle
       = yield :subtitle
-
+      
     .flashes
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
-
-
-
+    
   .main-container
     .leftbar
       .right
