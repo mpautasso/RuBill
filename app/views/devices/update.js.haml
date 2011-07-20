@@ -1,0 +1,13 @@
+$.fancybox.close();
+
+$("#news").html("Device was updated succesfully");
+
+$('#news').delay(500).fadeIn(2500, function() {
+$(this).delay(1500).fadeOut(4000);
+});
+
+$("tr#device_#{@device.id}").replaceWith("#{escape_javascript(render(:partial => @device))}");
+
+$(function() {
+$("a.popme").fancybox({'padding':  7});
+});

@@ -4,7 +4,7 @@
   %td= user.email
   %td= user.admin
   %td
-  %td= link_to image_tag("my_images/edit.png", :alt => "Edit") , edit_user_path(user), :class => 'popme'
+  %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_user_path(user), :class => 'popme'
   %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), user, :confirm => 'Are you sure?', |
                                 :method => :delete, |
                                 :remote => true

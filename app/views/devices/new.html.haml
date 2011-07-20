@@ -1,5 +1,8 @@
-%h1 New device
+#header-popup
+  %h1 New device
+  %br
+.container{:style => "width:500px"}
+  = form_for @device, :url => devices_path, :remote => true do |f|
+    #errors
 
-= render 'form'
-
-= link_to 'Back', devices_path
+    = render :partial => 'form', :locals => {:f => f}

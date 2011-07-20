@@ -1,4 +1,8 @@
 %h1 Editing device
 
-= render 'form'
+.container{:style => "width:600px"}
+  = form_for @device, :url => device_path(@device), :remote => true do |f|
+    #errors
+
+    = render :partial => 'form', :locals => {:f => f}
 

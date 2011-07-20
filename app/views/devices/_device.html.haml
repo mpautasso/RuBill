@@ -1,0 +1,11 @@
+%tr{:id => "device_#{device.id}", :class => "body #{cycle(:odd, :even)}"}
+  %td= device.user_id
+  %td= device.exten
+  %td= device.priority
+  %td= device.app
+  %td= device.app_data
+  %td
+  %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_device_path(device), :class => 'popme'
+  %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), device, :confirm => 'Are you sure?', |
+                                :method => :delete, |
+                                :remote => true

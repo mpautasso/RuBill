@@ -50,9 +50,11 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
+        format.js
         format.html { redirect_to(@device, :notice => 'Device was successfully created.') }
         format.xml  { render :xml => @device, :status => :created, :location => @device }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @device.errors, :status => :unprocessable_entity }
       end
@@ -66,9 +68,11 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.update_attributes(params[:device])
+        format.js
         format.html { redirect_to(@device, :notice => 'Device was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.js { render :error }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @device.errors, :status => :unprocessable_entity }
       end
@@ -82,6 +86,7 @@ class DevicesController < ApplicationController
     @device.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(devices_url) }
       format.xml  { head :ok }
     end
