@@ -1,7 +1,7 @@
-%h1 Editing incomming_call
+%h1 Editing incomming call
 
-= render 'form'
+.container{:style => "width:600px"}
+  = form_for @incomming_call, :url => incomming_call_path(@incomming_call), :remote => true do |f|
+    #errors
 
-= link_to 'Show', @incomming_call
-\|
-= link_to 'Back', incomming_calls_path
+    = render :partial => 'form', :locals => {:f => f}

@@ -47,8 +47,8 @@ class OutgoingCallsController < ApplicationController
   # POST /outgoing_calls
   # POST /outgoing_calls.xml
   def create
-#    @outgoing_call = OutgoingCall.new(params[:outgoing_call])
-    @outgoing_call = OutgoingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @outgoing_call = OutgoingCall.new(params[:outgoing_call])
+ #   @outgoing_call = OutgoingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       if @outgoing_call.save
         format.js

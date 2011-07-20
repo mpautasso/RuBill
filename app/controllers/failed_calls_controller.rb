@@ -46,7 +46,7 @@ class FailedCallsController < ApplicationController
   # POST /failed_calls.xml
   def create
     @failed_call = FailedCall.new(params[:failed_call])
-
+    #@failed_call = FailedCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       if @failed_call.save
         format.js

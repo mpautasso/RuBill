@@ -48,12 +48,14 @@ class IncommingCallsController < ApplicationController
   # POST /incomming_calls.xml
   def create
     @incomming_call = IncommingCall.new(params[:incomming_call])
-
+    # @incomming_call = IncommingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       if @incomming_call.save
+        format.js
         format.html { redirect_to(@incomming_call, :notice => 'Incomming call was successfully created.') }
         format.xml  { render :xml => @incomming_call, :status => :created, :location => @incomming_call }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @incomming_call.errors, :status => :unprocessable_entity }
       end
@@ -67,9 +69,11 @@ class IncommingCallsController < ApplicationController
 
     respond_to do |format|
       if @incomming_call.update_attributes(params[:incomming_call])
+        format.js
         format.html { redirect_to(@incomming_call, :notice => 'Incomming call was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.js { render :error }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @incomming_call.errors, :status => :unprocessable_entity }
       end
@@ -83,6 +87,7 @@ class IncommingCallsController < ApplicationController
     @incomming_call.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(incomming_calls_url) }
       format.xml  { head :ok }
     end

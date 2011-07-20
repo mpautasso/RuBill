@@ -1,5 +1,8 @@
-%h1 New Incomming Call
+#header-popup
+  %h1 New incomming call
+  %br
+.container{:style => "width:500px"}
+  = form_for @incomming_call, :url => incomming_calls_path, :remote => true do |f|
+    #errors
 
-= render 'form'
-
-= link_to 'Back', incomming_calls_path
+    = render :partial => 'form', :locals => {:f => f}

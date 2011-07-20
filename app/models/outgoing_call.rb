@@ -36,7 +36,7 @@ class OutgoingCall < ActiveRecord::Base
   scope :by_date, lambda {|date| where(:calldate => date)}
 
   validates :src, :dst, :presence => true
-  validates_with CallValidator
+  validates_with CallValidator, :on => :create
   
   scope :by_user, lambda {|user| where(:user_id => user.id) }
 
