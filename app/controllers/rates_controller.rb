@@ -50,9 +50,11 @@ class RatesController < ApplicationController
 
     respond_to do |format|
       if @rate.save
+        format.js
         format.html { redirect_to(@rate, :notice => 'Rate was successfully created.') }
         format.xml  { render :xml => @rate, :status => :created, :location => @rate }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @rate.errors, :status => :unprocessable_entity }
       end
@@ -66,9 +68,11 @@ class RatesController < ApplicationController
 
     respond_to do |format|
       if @rate.update_attributes(params[:rate])
+        format.js
         format.html { redirect_to(@rate, :notice => 'Rate was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.js { render :error }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @rate.errors, :status => :unprocessable_entity }
       end
@@ -82,6 +86,7 @@ class RatesController < ApplicationController
     @rate.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(rates_url) }
       format.xml  { head :ok }
     end

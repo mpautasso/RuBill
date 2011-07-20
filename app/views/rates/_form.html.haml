@@ -1,47 +1,39 @@
-.container
-  = form_for @rate do |f|
-    -if @rate.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@rate.errors.count, "error")} prohibited this user from being saved:"
-        %ul
-          - @rate.errors.full_messages.each do |msg|
-            %li= msg
-    .column 
-      .span-4
-        .field
-          = f.label :prefix
-      .span-8
-        = f.text_field :prefix
-    
-    .column
-      .span-4
-        .field
-          = f.label :initial_time
-      .span-8
-        = f.text_field :initial_time
+.column 
+  .span-4
+    .field
+      = f.label :prefix
+  .span-8
+    = f.text_field :prefix
 
-    .column
-      .span-4
-        .field
-          = f.label :initial_cost
-      .span-8
-        = f.text_field :initial_cost
+.column
+  .span-4
+    .field
+      = f.label :initial_time
+  .span-8
+    = f.text_field :initial_time
 
-    .column
-      .span-4
-        .field
-          = f.label :interval_time
-      .span-8
-        = f.text_field :interval_time
+.column
+  .span-4
+    .field
+      = f.label :initial_cost
+  .span-8
+    = f.text_field :initial_cost
 
-    .column 
-      .span-4
-        .field
-          = f.label :interval_cost
-      .span-8
-        = f.text_field :interval_cost
-    
-    .column 
-      .span-12
-        .actions{:style => 'float:right;'}
-          = f.submit 'Save', :id => 'submit_button'
+.column
+  .span-4
+    .field
+      = f.label :interval_time
+  .span-8
+    = f.text_field :interval_time
+
+.column 
+  .span-4
+    .field
+      = f.label :interval_cost
+  .span-8
+    = f.text_field :interval_cost
+
+.column 
+  .span-12
+    .actions{:style => 'float:right;'}
+      = f.submit 'Save', :id => 'submit_button'

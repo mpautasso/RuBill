@@ -1,12 +1,11 @@
-%h1 Listing Rates
+%h1 Listing rates
 
 = form_tag rates_path, :method => 'get', :id => "rates_search" do
   %p
     = text_field_tag :search, params[:search]
-    = submit_tag "Search", :prefix => nil
+    #submit
+      .button
+        = submit_tag "Search", :prefix => nil
   %p
   #rates_table
     = render 'rates'
-
-  %p
-    = link_to 'New Rate', new_rate_path, :class => 'popme'

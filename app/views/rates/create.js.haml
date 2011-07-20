@@ -1,0 +1,13 @@
+$.fancybox.close();
+
+$("#news").html("Rate was successfully created");
+
+$('#news').delay(500).fadeIn(2500, function() {
+$(this).delay(1500).fadeOut(4000);
+});
+
+$("table#rates tr:first").after("#{escape_javascript(render(:partial => @rate))}");
+
+$(function() {
+$("a.popme").fancybox({'padding':  7});
+});

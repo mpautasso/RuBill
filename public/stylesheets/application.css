@@ -92,7 +92,6 @@
 }
   
 .pretty {
-//  background-color: grey;
   background-color: #BDBDBD;
   color: white;
   font-size: 10pt; 
@@ -102,12 +101,12 @@ tr.pretty th{
   text-align: center;
 }
 
-#users tr.body:hover, #outgoingcalls tr.body:hover, #failedcalls tr.body:hover, #incommingcalls tr.body:hover, #devices tr.body:hover{
+#users tr.body:hover, #outgoingcalls tr.body:hover, #failedcalls tr.body:hover, #incommingcalls tr.body:hover, #devices tr.body:hover, #rates tr.body:hover{
   background-color: #FAAC58;
   color: blue;
 }
 
-#users tr th a, #outgoingcalls tr th a, #failedcalls tr th a, #incommingcalls tr th a, #devices tr th a{
+#users tr th a, #outgoingcalls tr th a, #failedcalls tr th a, #incommingcalls tr th a, #devices tr th a, #rates tr th a{
   text-decoration: none;
 }
 
