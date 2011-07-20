@@ -49,9 +49,11 @@ class FailedCallsController < ApplicationController
 
     respond_to do |format|
       if @failed_call.save
+        format.js
         format.html { redirect_to(@failed_call, :notice => 'Failed call was successfully created.') }
         format.xml  { render :xml => @failed_call, :status => :created, :location => @failed_call }
       else
+        format.js { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @failed_call.errors, :status => :unprocessable_entity }
       end
@@ -65,9 +67,11 @@ class FailedCallsController < ApplicationController
 
     respond_to do |format|
       if @failed_call.update_attributes(params[:failed_call])
+        format.js
         format.html { redirect_to(@failed_call, :notice => 'Failed call was successfully updated.') }
         format.xml  { head :ok }
       else
+        format.js { render :error }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @failed_call.errors, :status => :unprocessable_entity }
       end
@@ -81,6 +85,7 @@ class FailedCallsController < ApplicationController
     @failed_call.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(failed_calls_url) }
       format.xml  { head :ok }
     end

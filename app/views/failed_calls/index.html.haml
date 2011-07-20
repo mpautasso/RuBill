@@ -1,14 +1,11 @@
-%h1 Listing Failed Calls
+%h1 Listing failed calls
 
 = form_tag failed_calls_path, :method => 'get', :id => "failedcalls_search" do
   %p
     = text_field_tag :search, params[:search]
-    = submit_tag "Search", :name => nil
+    #submit
+      .button
+        = submit_tag "Search", :name => nil
   %p
   #failed_calls_table
     = render 'failed_calls'
-
-  %p
-    = link_to "New Failed Calls", new_failed_call_path, :class => 'popme'
-
-

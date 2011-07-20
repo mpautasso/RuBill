@@ -1,5 +1,8 @@
-%h1 New failed_call
+#header-popup
+  %h1 New failed call
+  %br
+.container{:style => "width:500px"}
+  = form_for @failed_call, :url => failed_calls_path, :remote => true do |f|
+    #errors
 
-= render 'form'
-
-= link_to 'Back', failed_calls_path
+    = render :partial => 'form', :locals => {:f => f}

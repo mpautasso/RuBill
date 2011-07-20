@@ -1,0 +1,8 @@
+%tr{:id => "failedcall_#{failed_call.id}", :class => "body #{cycle('odd','even')}"}
+  %td= failed_call.calldate
+  %td= failed_call.src
+  %td= failed_call.dst
+  %td= failed_call.duration
+  %td= failed_call.billsec
+  %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_failed_call_path(failed_call), :class => 'popme'
+  %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), failed_call, :confirm => 'Are you sure?', :method => :delete, remote:true

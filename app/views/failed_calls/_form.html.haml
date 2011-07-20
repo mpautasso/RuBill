@@ -1,48 +1,37 @@
-.container
-  = form_for @failed_call do |f|
-    -if @failed_call.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@failed_call.errors.count, "error")} prohibited this failed_call from being saved:"
-        %ul
-          - @failed_call.errors.full_messages.each do |msg|
-            %li= msg
+.column
+  .span-4
+    .field
+      = f.label :calldate
+  .span-8
+    #calldate
+    = select_time(@failed_call.calldate, :include_seconds => true)
 
-    #hidden_fields
+.span-4
+  .field
+    = f.label :src, "Source"
+.span-8
+  = f.select 'src', Device.all.map(&:exten)
 
-    .column
-      .span-4
-        .field
-          = f.label :calldate
-      .span-8
-        #calldate
-        = select_time(@failed_call.calldate, :include_seconds => true)
-  
-    .span-4
-      .field
-        = f.label :src, "Source"
-    .span-8
-      = f.select 'src', Device.all.map(&:exten)
+.span-4
+  .field
+    = f.label :dst, "Destination"
+.span-8
+  = f.text_field :dst
 
-    .span-4
-      .field
-        = f.label :dst, "Destination"
-    .span-8
-      = f.text_field :dst
+.span-4
+  .field
+    = f.label :duration, "Durations"
+.span-8
+  = f.text_field :duration
 
-    .span-4
-      .field
-        = f.label :duration, "Durations"
-    .span-8
-      = f.text_field :duration
+.span-4
+  .field
+    = f.label :billsec, "Bill seconds"
+.span-8
+  = f.text_field :billsec
 
-    .span-4
-      .field
-        = f.label :billsec, "Bill seconds"
-    .span-8
-      = f.text_field :billsec
-
-    .actions
-      = f.submit 'Save', :id => 'submit_button'
+.actions
+  = f.submit 'Save', :id => 'submit_button'
 
 
 :javascript
@@ -57,6 +46,5 @@
   
   
   $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate.to_date.to_s}", dateFormat: "yy-mm-dd"});
+    $('#calldate').datepicker({ inline: true, defaultDate: "#{@failed_call.calldate}", dateFormat: "yy-mm-dd"});
   });
-

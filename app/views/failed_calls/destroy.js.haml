@@ -1,0 +1,7 @@
+$("#news").html("Failed call was destroyed");
+
+$('#news').delay(500).fadeIn(2500, function() {
+$(this).delay(1500).fadeOut(4000);
+});
+
+$("tr#failedcall_#{@failed_call.id}").remove();
