@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
   validates :password,  :presence      => true,
                         :confirmation => true, 
                         :if => :password_required?
+                        
+  def to_s
+    [name, last_name].join(' ')
+  end
 
   def admin?
     admin

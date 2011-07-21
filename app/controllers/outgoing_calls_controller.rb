@@ -5,11 +5,16 @@ class OutgoingCallsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
 
-  # GET /outgoing_calls
-  # GET /outgoing_calls.xml
   def index
+#    @outgoing_calls = begin_of_association_chain(OutgoingCall).search(params[:search])
+#                      .order(sort_column + " " + sort_direction)
+#                      .paginate(:per_page => 27, :page => params[:page])
 
-    @outgoing_calls = current_user.outgoing_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+
+    @outgoing_calls = current_user.outgoing_calls.search(params[:search])
+                      .order(sort_column + " " + sort_direction)
+                      .paginate(:per_page => 27, :page => params[:page])
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @outgoing_calls }
@@ -17,8 +22,7 @@ class OutgoingCallsController < ApplicationController
     end
   end
 
-  # GET /outgoing_calls/1
-  # GET /outgoing_calls/1.xml
+
   def show
     @outgoing_call = OutgoingCall.find(params[:id])
 
@@ -28,8 +32,7 @@ class OutgoingCallsController < ApplicationController
     end
   end
 
-  # GET /outgoing_calls/new
-  # GET /outgoing_calls/new.xml
+
   def new
     @outgoing_call = OutgoingCall.new
 
@@ -39,7 +42,7 @@ class OutgoingCallsController < ApplicationController
     end
   end
 
-  # GET /outgoing_calls/1/edit
+
   def edit
     @outgoing_call = OutgoingCall.find(params[:id])
      render 'edit', :layout => false

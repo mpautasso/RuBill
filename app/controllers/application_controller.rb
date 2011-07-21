@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   def build_date_from_params(field_name, params)
     Date.new(params["#{field_name.to_s}(1i)"].to_i, params["#{field_name.to_s}(2i)"].to_i, params["#{field_name.to_s}(3i)"].to_i)
   end
+  
+    def begin_of_association_chain(model)
+      current_user.admin? ? model : current_user.send(model.to_s.tableize)
+    end
 
   private
 
