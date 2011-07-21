@@ -4,13 +4,14 @@
 %table#rates
   %tr.pretty.ajaxifyme
     %th=sortable "prefix"
-    %th=sortable "initial_time"
-    %th=sortable "initial_cost"
-    %th=sortable "interval_time"
-    %th=sortable "interval_cost"
+    %th=sortable "initial_time", "Initial time"
+    %th=sortable "initial_cost", "Initial cost"
+    %th=sortable "interval_time", "Interval time"
+    %th=sortable "interval_cost", "Interval cost"
     %th
     %th
-    %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_rate_path, :class => 'popme'
+    - if current_user.admin?
+      %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_rate_path, :class => 'popme'
 
   = render :partial => 'rate', :collection => @rates
 

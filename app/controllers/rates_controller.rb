@@ -1,6 +1,7 @@
 class RatesController < ApplicationController
   
   before_filter :authenticate
+  before_filter :require_admin, :except => [:index, :show]
   helper_method :sort_column, :sort_direction
 
   # GET /rates
