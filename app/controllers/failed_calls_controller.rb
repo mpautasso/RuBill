@@ -7,7 +7,11 @@ class FailedCallsController < ApplicationController
   # GET /failed_calls
   # GET /failed_calls.xml
   def index
-    @failed_calls = current_user.failed_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @failed_calls = begin_of_association_chain(FailedCall)
+                      .search(params[:search])
+                      .order(sort_column + " " + sort_direction)
+                      .paginate(:per_page => 27, :page => params[:page])
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @outgoing_calls }

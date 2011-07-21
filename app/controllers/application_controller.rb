@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
   
     def begin_of_association_chain(model)
-      current_user.admin? ? model : current_user.send(model.to_s.tableize)
+      current_user.admin? ? model : current_user.device.send(model.to_s.tableize)
     end
 
   private

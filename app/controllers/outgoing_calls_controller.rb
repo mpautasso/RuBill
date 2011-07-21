@@ -6,12 +6,7 @@ class OutgoingCallsController < ApplicationController
 
 
   def index
-#    @outgoing_calls = begin_of_association_chain(OutgoingCall).search(params[:search])
-#                      .order(sort_column + " " + sort_direction)
-#                      .paginate(:per_page => 27, :page => params[:page])
-
-
-    @outgoing_calls = current_user.outgoing_calls.search(params[:search])
+    @outgoing_calls = begin_of_association_chain(OutgoingCall).search(params[:search])
                       .order(sort_column + " " + sort_direction)
                       .paginate(:per_page => 27, :page => params[:page])
     
@@ -48,11 +43,10 @@ class OutgoingCallsController < ApplicationController
      render 'edit', :layout => false
   end
 
-  # POST /outgoing_calls
-  # POST /outgoing_calls.xml
+
   def create
     @outgoing_call = OutgoingCall.new(params[:outgoing_call])
- #   @outgoing_call = OutgoingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+
     respond_to do |format|
       if @outgoing_call.save
         format.js
@@ -66,8 +60,7 @@ class OutgoingCallsController < ApplicationController
     end
   end
 
-  # PUT /outgoing_calls/1
-  # PUT /outgoing_calls/1.xml
+
   def update
     @outgoing_call = OutgoingCall.find(params[:id])
 
@@ -84,8 +77,7 @@ class OutgoingCallsController < ApplicationController
     end
   end
 
-  # DELETE /outgoing_calls/1
-  # DELETE /outgoing_calls/1.xml
+
   def destroy
     @outgoing_call = OutgoingCall.find(params[:id])
     @outgoing_call.destroy

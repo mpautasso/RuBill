@@ -7,8 +7,11 @@ class IncommingCallsController < ApplicationController
   # GET /incomming_calls
   # GET /incomming_calls.xml
   def index
-    @incomming_calls = current_user.incomming_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
-    
+    @incomming_calls = begin_of_association_chain(IncommingCall)
+                          .search(params[:search])
+                          .order(sort_column + " " + sort_direction)
+                          .paginate(:per_page => 27, :page => params[:page])
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @incomming_calls }
@@ -34,8 +37,7 @@ class IncommingCallsController < ApplicationController
     
     respond_to do |format|
       format.html { render 'new', :layout => false } # new.html.erb
-      format.xml  { render :xml => @incomming_call }
-      
+      format.xml  { render :xml => @incomming_call }      
     end
   end
 
@@ -49,7 +51,7 @@ class IncommingCallsController < ApplicationController
   # POST /incomming_calls.xml
   def create
     @incomming_call = IncommingCall.new(params[:incomming_call])
-    # @incomming_call = IncommingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+
     respond_to do |format|
       if @incomming_call.save
         format.js

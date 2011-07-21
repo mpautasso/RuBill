@@ -35,11 +35,6 @@ class User < ActiveRecord::Base
 
   has_many :invoices
   has_one :device
-
-  has_many :outgoing_calls, :through => :device
-  has_many :incomming_calls, :through => :device
-  has_many :failed_calls, :through => :device
-  
   
   validates :name, :presence => true, 
                    :length   => { :maximum => 50 }
