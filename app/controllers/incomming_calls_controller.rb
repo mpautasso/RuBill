@@ -1,12 +1,13 @@
 class IncommingCallsController < ApplicationController
 
   before_filter :authenticate
+  before_filter :require_admin, :except => [:index, :show]
   helper_method :sort_column, :sort_direction
 
   # GET /incomming_calls
   # GET /incomming_calls.xml
   def index
-    @incomming_calls = IncommingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @incomming_calls = current_user.incomming_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     
     respond_to do |format|
       format.html # index.html.erb

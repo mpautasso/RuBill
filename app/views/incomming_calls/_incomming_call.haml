@@ -4,7 +4,8 @@
   %td= incomming_call.dst
   %td= incomming_call.duration
   %td= incomming_call.billsec
-  %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_incomming_call_path(incomming_call), :class => 'popme'
-  %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), incomming_call, :confirm => 'Are you sure?', |
-                                :method => :delete, |
-                                :remote => true
+  -if current_user.admin?
+    %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_incomming_call_path(incomming_call), :class => 'popme'
+    %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), incomming_call, :confirm => 'Are you sure?', |
+                                  :method => :delete, |
+                                  :remote => true
