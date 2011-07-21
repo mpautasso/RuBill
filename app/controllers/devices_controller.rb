@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
 
   before_filter :authenticate
+  before_filter :require_admin
   helper_method :sort_column, :sort_direction
 
   # GET /devices
@@ -101,4 +102,5 @@ class DevicesController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+  
 end
