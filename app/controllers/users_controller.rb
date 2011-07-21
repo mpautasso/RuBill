@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :authenticate
+  before_filter :require_admin_creds
   helper_method :sort_column, :sort_direction
 
   # GET /users
@@ -103,4 +104,11 @@ class UsersController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+  
+  def require_admin_creds
+    unless current_user.admin?
+      redirect_to(root_path)
+    end
+  end
+  
 end

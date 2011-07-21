@@ -7,9 +7,9 @@ SimpleNavigation::Configuration.run do |navigation|
  
       primary.item :home, 'Home', root_path, :class => 'None' 
 
-      primary.item :users, 'Users', users_path
+      primary.item :users, 'Users', users_path, :if => Proc.new { current_user.admin? }
       
-      primary.item :devices, 'Devices', devices_path
+      primary.item :devices, 'Devices', devices_path, :if => Proc.new { current_user.admin? }
 
       primary.item :invoices, 'Invoices', invoices_path
 
