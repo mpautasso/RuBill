@@ -1,6 +1,7 @@
 class OutgoingCallsController < ApplicationController
 
   before_filter :authenticate
+  before_filter :require_admin, :except => [:index, :show]
   helper_method :sort_column, :sort_direction
 
 
@@ -8,7 +9,7 @@ class OutgoingCallsController < ApplicationController
   # GET /outgoing_calls.xml
   def index
 
-    @outgoing_calls = OutgoingCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @outgoing_calls = current_user.outgoing_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @outgoing_calls }
