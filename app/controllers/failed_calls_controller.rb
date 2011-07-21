@@ -1,12 +1,13 @@
 class FailedCallsController < ApplicationController
 
   before_filter :authenticate
+  before_filter :require_admin, :except => [:index, :show]
   helper_method :sort_column, :sort_direction
 
   # GET /failed_calls
   # GET /failed_calls.xml
   def index
-    @failed_calls = FailedCall.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @failed_calls = current_user.failed_calls.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @outgoing_calls }
