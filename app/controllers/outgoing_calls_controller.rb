@@ -65,6 +65,8 @@ class OutgoingCallsController < ApplicationController
 
 
   def update
+    time = [params[:date][:hour], params[:date][:minute], params[:date][:second]].join(':')
+    params[:outgoing_call][:calldate] = [params[:outgoing_call][:calldate], time].join(' ')
     @outgoing_call = OutgoingCall.find(params[:id])
 
     respond_to do |format|

@@ -71,6 +71,8 @@ class FailedCallsController < ApplicationController
   # PUT /failed_calls/1
   # PUT /failed_calls/1.xml
   def update
+    time = [params[:date][:hour], params[:date][:minute], params[:date][:second]].join(':')
+    params[:failed_call][:calldate] = [params[:failed_call][:calldate], time].join(' ')
     @failed_call = FailedCall.find(params[:id])
 
     respond_to do |format|

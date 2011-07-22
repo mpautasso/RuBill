@@ -71,6 +71,8 @@ class IncommingCallsController < ApplicationController
   # PUT /incomming_calls/1
   # PUT /incomming_calls/1.xml
   def update
+    time = [params[:date][:hour], params[:date][:minute], params[:date][:second]].join(':')
+    params[:incomming_call][:calldate] = [params[:incomming_call][:calldate], time].join(' ')
     @incomming_call = IncommingCall.find(params[:id])
 
     respond_to do |format|
