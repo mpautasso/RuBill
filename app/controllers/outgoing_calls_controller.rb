@@ -45,6 +45,9 @@ class OutgoingCallsController < ApplicationController
 
 
   def create
+    time = [params[:date][:hour], params[:date][:minute], params[:date][:second]].join(':')
+    params[:outgoing_call][:calldate] = [params[:outgoing_call][:calldate], time].join(' ')
+
     @outgoing_call = OutgoingCall.new(params[:outgoing_call])
 
     respond_to do |format|

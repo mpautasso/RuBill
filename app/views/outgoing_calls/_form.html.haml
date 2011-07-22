@@ -1,9 +1,12 @@
+#hiddens
+
 .column
   .span-4
     .field
       = f.label :calldate
   .span-8
     #calldate
+    = select_time(@outgoing_call.calldate, :include_seconds => true)
 
 .span-4
   .field
@@ -35,10 +38,10 @@
 :javascript
   $(document).ready(function() {
     $("#submit_button").click( function(){
-      $("#submit_button").attr('disabled', true);
       from_date = $(" #calldate ").val();
       input_tag = "<input type =\"hidden\" id=\"outgoing_call_calldate\" name=\"outgoing_call[calldate]\" value=\"" + from_date + "\">";
-      $("#edit_outgoing_call_1").append(input_tag);
+      
+      $("#hiddens").append(input_tag);
     });
   });
 

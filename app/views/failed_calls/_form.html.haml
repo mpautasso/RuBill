@@ -1,3 +1,5 @@
+#hiddens
+
 .column
   .span-4
     .field
@@ -37,10 +39,10 @@
 :javascript
   $(document).ready(function() {
     $("#submit_button").click( function(){
-      $("#submit_button").attr('disabled', true);
       from_date = $(" #calldate ").val();
       input_tag = "<input type =\"hidden\" id=\"failed_call_calldate\" name=\"failed_call[calldate]\" value=\"" + from_date + "\">";
-      $("#hidden_fields").append(input_tag);
+
+      $("#hiddens").append(input_tag);
     });
   });
   

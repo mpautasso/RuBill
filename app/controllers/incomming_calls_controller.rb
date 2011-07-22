@@ -50,6 +50,9 @@ class IncommingCallsController < ApplicationController
   # POST /incomming_calls
   # POST /incomming_calls.xml
   def create
+    time = [params[:date][:hour], params[:date][:minute], params[:date][:second]].join(':')
+    params[:incomming_call][:calldate] = [params[:incomming_call][:calldate], time].join(' ')
+
     @incomming_call = IncommingCall.new(params[:incomming_call])
 
     respond_to do |format|
