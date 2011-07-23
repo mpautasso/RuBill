@@ -7,8 +7,12 @@ class InvoicesController < ApplicationController
   end
 
   def filter_calls
-    from = build_date_from_params('from', params[:invoice])
-    to = build_date_from_params('to', params[:invoice])
+  
+    from = params[:invoice][:from]
+    to = params[:invoice][:to]
+
+#    logger.debug '***************************'
+#    logger.debug from
 
     if current_user.admin?
       @calls = OutgoingCall.created_since(from)

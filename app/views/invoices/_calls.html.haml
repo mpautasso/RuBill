@@ -1,20 +1,11 @@
-.container
-  .span-20{:style => "background-color: green;"}
-    .span-3
-      calldate
-      
-    .span-3
-      src
-
-    .span-3
-      dst
-
-    .span-3
-      duration
-
-    .span-3.last
-      cost
-
-  .span-20
-    = render :partial => 'call', :collection => @calls
-
+%table
+  %tr.pretty
+    %th Call date
+    %th Source
+    %th Destination
+    %th Duration
+    %th Bill seconds
+    %th Rate
+    %th Cost
+  
+  = render :partial => 'call', :collection => @calls  

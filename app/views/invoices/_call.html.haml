@@ -1,15 +1,8 @@
-.span-20{:class => cycle('even', 'odd')}
-  .span-3
-    = call.calldate.to_s(:our_format)
-    
-  .span-3
-    = call.src
-
-  .span-3
-    = call.dst
-
-  .span-3
-    = call.duration
-
-  .span-3.last
-    = call.cost
+%tr{:class => "body #{cycle('odd','even')}"}
+  %td= call.calldate.to_s(:our_format)
+  %td= call.src
+  %td= call.dst
+  %td= call.duration
+  %td= call.billsec
+  %td= call.rate_id
+  %td= call.cost

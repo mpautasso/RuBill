@@ -31,24 +31,43 @@
 
 
 %br
-.container.showgrid
+
   = form_for Invoice.new, :url => filter_calls_invoices_path(), :remote => true do |f|
     .column
-      .span-6
+      .span-14
         = f.label :from, 'From: '
-        = f.date_select :from
-      .span-6
+        = f.text_field(:from, :size=>8) 
+
         = f.label :to, 'To:'
-        = f.date_select :to
-      .span-2
+        = f.text_field(:to, :size=>8) 
+
         = f.submit 'Go'
+%br
+  #calls
 
-
-#calls{:style => "display:none;"}
-  PLACEHOLDER TO FILTER CALLS
-
-
+    
 :javascript
+
+  $(function() {
+
+    var dates = $( "#invoice_from, #invoice_to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      changeYear: true,
+      numberOfMonths: 3,
+      dateFormat: 'yy-mm-dd',
+      
+      onSelect: function( selectedDate ) {
+        var option = this.id == "invoice_from" ? "minDate" : "maxDate", 
+        instance = $( this ).data( "datepicker" ),
+        date = $.datepicker.parseDate(instance.settings.dateFormat ||
+        $.datepicker._defaults.dateFormat, selectedDate, instance.settings );
+
+        dates.not( this ).datepicker( "option", option, date );
+      }
+    });
+  });
+
   $(document).ready(function(){
     $(".test").click( function(){
       alert('click on test class...');
