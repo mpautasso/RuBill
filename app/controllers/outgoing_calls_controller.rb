@@ -2,6 +2,7 @@ class OutgoingCallsController < ApplicationController
 
   before_filter :authenticate
   before_filter :require_admin, :except => [:index, :show]
+  before_filter :check_device_existence, :unless => lambda{ current_user.admin? }
   helper_method :sort_column, :sort_direction
 
 

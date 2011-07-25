@@ -30,5 +30,8 @@ class ApplicationController < ActionController::Base
         head(:forbidden)
       end
     end
-       
+    
+    def check_device_existence
+      redirect_to root_path, :notice => 'User has not device associate yet' unless current_user.device
+    end
 end
