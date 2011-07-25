@@ -4,7 +4,7 @@ DEBUG = true
 
 desc "Imports calls from a CSV file"
 
-task :import_calls, :needs => :environment do |task,args|
+task :import_calls, [] => :environment do |task,args|
   i = 0
 
 #  Rails.logger.info "======================================================"  
