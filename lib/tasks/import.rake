@@ -38,7 +38,6 @@ task :import_calls, :needs => :environment do |task,args|
       outgoing_call.amaflags = row[12]
       outgoing_call.accountcode = row[13]
       outgoing_call.userfield = row[14]
-      outgoing_call.device_id = src_device.exten
       if outgoing_call.save then
         puts "\tCall saved" if DEBUG
         imported = true
