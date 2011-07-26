@@ -3,7 +3,22 @@ class InvoicesController < ApplicationController
   before_filter :authenticate
   
   def index
-    @invoices = Invoice.all 
+    @invoices = Invoice.all
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @invoice }
+    end
+    
+  end
+  
+  def show
+    @invoice = Invoice.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @invoice }
+      format.pdf { render :layout => false } # Add this line
+    end
   end
 
   def filter_calls
@@ -18,7 +33,7 @@ class InvoicesController < ApplicationController
       @calls = OutgoingCall.created_since(from)
     else
       if current_user.device
-        @calls = OutgoingCall.created_since(from).select{|x| x.device_id == current_user.device.exten}
+        @calls = OutgoingCall.created_since(from).created_until(to).select{|x| x.device_id == current_user.device.exten}
       else
         @calls = []
       end

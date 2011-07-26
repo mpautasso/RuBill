@@ -1,8 +1,3 @@
-From: 
-= from
-To:
-= to
-
 %table
   %tr.pretty
     %th Call date
@@ -10,12 +5,13 @@ To:
     %th Destination
     %th Duration
     %th Bill seconds
-    %th Rate
     %th Cost
 
   = render :partial => 'call', :collection => @calls  
-Total Cost:
-= @calls.inject(0.0) { |sum, i| sum + i.cost}
+
+.total-cost
+  Total Cost:
+  = @calls.inject(0.0) { |sum, i| sum + i.cost}
 
 
 = link_to "Save Report", root_url

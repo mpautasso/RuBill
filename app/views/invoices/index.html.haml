@@ -1,12 +1,10 @@
 - if !@invoices.empty?
   .container
-    .span-20{:style => "background-color: blue;"}
+    .span-20
       .span-4
-        Invoide #
-
+        Invoice #
       .span-8
         User Name
-
       .span-8.last
         Total
 
@@ -15,15 +13,13 @@
 
 
     - @invoices.each do |invoice|
-      .span-20{:style => "background-color: blue;"}
+      .span-20
         .span-4
           = invoice.id
-
         .span-8
           = invoice.user.email
 
-        .span-8.last
-          = invoice.total
+      
 
 - else
   .test
@@ -36,26 +32,27 @@
     .column
       .span-14
         = f.label :from, 'From: '
-        = f.text_field(:from, :size=>8) 
+        = f.text_field(:from, :size=>8, :autocomplete => :off) 
 
         = f.label :to, 'To:'
-        = f.text_field(:to, :size=>8) 
+        = f.text_field(:to, :size=>8, :autocomplete => :off) 
 
         = f.submit 'Go'
 %br
   #calls
-
     
 :javascript
 
   $(function() {
 
     var dates = $( "#invoice_from, #invoice_to" ).datepicker({
-      defaultDate: "+1w",
+
       changeMonth: true,
       changeYear: true,
-      numberOfMonths: 3,
+      numberOfMonths: 2,
       dateFormat: 'yy-mm-dd',
+      showAnim: 'fade',
+      duration: 'slow',
       
       onSelect: function( selectedDate ) {
         var option = this.id == "invoice_from" ? "minDate" : "maxDate", 

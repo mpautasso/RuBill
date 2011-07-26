@@ -19,13 +19,13 @@ gem 'will_paginate',:git => 'git://github.com/mislav/will_paginate.git', :branch
 gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'annotate', '2.4.0'
 #gem "prawn", "~> 0.11.1"
-gem 'rake', '0.8.7'
+gem 'rake'
 
 
 group :development, :test do
-#  gem 'capybara'
-#  gem 'rspec-rails'
-#  gem 'rspec', '2.6.0'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'rspec', '2.6.0'
   gem 'haml-rails'
   gem 'hpricot'
   gem 'ruby_parser'

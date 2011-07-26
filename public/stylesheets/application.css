@@ -155,12 +155,14 @@ tr.body td{
   border-radius: 5px;
 }
 
-#header-popup h1{
+#header-popup h1{  
   background-color: gray;
   color: white;
-  font: bold;
-  padding: 0px;
-  margin: 0px 0px;
+  font-family: Arial;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 7px;
+  font-weight: normal;
 }
   
 #flash-login .login{
@@ -180,8 +182,15 @@ margin-top: -50px;
 margin-right: 80px;
 }
 
-#submit .button{
+#submit .button {
 float: right;
 margin-top: -52px;
 margin-right: 0px;
+}
+
+.total-cost {
+float: right;
+color: black;
+margin-right: 37px;
+font: bold 14px Verdana, Helvetica, Arial;
 }
