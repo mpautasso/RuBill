@@ -11,7 +11,7 @@
 
 .total-cost
   Total Cost:
-  = @calls.inject(0.0) { |sum, i| sum + i.cost}
+  = number_to_currency(@calls.inject(0.0) { |sum, i| sum + i.cost})
 
 
 = link_to "Save Report", root_url

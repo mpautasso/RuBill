@@ -38,13 +38,14 @@
         = f.text_field(:to, :size=>8, :autocomplete => :off) 
 
         = f.submit 'Go'
+
+        = link_to "current month spending", "#", :id => 'spending'
 %br
   #calls
     
 :javascript
 
   $(function() {
-
     var dates = $( "#invoice_from, #invoice_to" ).datepicker({
 
       changeMonth: true,
@@ -66,8 +67,16 @@
   });
 
   $(document).ready(function(){
-    $(".test").click( function(){
-      alert('click on test class...');
+    $("#spending").click(function(){
+      var currentTime = new Date()
+      var month = currentTime.getMonth() + 1
+      var day = currentTime.getDate()
+      var year = currentTime.getFullYear()
+
+      var from = year + "-" + month + "-1";
+      var to = year + "-" + month + "-" + day;
+      $("#invoice_from").val(from);
+      $("#invoice_to").val(to);
     });
   });
 

@@ -21,19 +21,15 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def filter_calls
-  
+  def filter_calls  
     from = params[:invoice][:from]
     to = params[:invoice][:to]
-
-#    logger.debug '***************************'
-#    logger.debug from
 
     if current_user.admin?
       @calls = OutgoingCall.created_since(from)
     else
       if current_user.device
-        @calls = OutgoingCall.created_since(from).created_until(to).select{|x| x.device_id == current_user.device.exten}
+        @calls = OutgoingCall.created_since(from).created_until(to).select{|x| x.src == current_user.device.exten}
       else
         @calls = []
       end
