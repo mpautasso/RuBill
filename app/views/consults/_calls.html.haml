@@ -1,0 +1,40 @@
+%br
+
+%h2
+  = "Calls from #{from} to #{to}"
+
+%table
+  %tr.pretty
+    %th Call date
+    %th Source
+    %th Destination
+    %th Duration
+    %th Bill seconds
+    %th Cost
+
+  = render :partial => 'call', :collection => @calls  
+
+.total-cost
+  Total Cost:
+  = number_to_currency(@calls.inject(0.0) { |sum, i| sum + i.cost})
+
+
+= link_to "Save Report", root_url, :id => 'save_report'
+= image_tag ('spin_blue.gif'), :style => "display:none;", :id => "save_spin"
+
+:javascript
+  $("#save_report").click(function(){
+      $.ajax({
+          type: "POST",
+          url: '/invoices',
+          data: "from=#{from}&to=#{to}",
+          beforeSend: function(){
+            $("#save_spin").show();
+          },
+          complete: function() {
+            $("#save_spin").hide();
+          }
+      });
+
+      return false;
+  });

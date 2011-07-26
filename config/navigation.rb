@@ -13,7 +13,9 @@ SimpleNavigation::Configuration.run do |navigation|
       end
 
       if current_user.device || current_user.admin?
-        primary.item :invoices, 'Invoices', invoices_path
+        primary.item :invoices, 'Consult', consults_path
+
+        primary.item :invoices, 'Saved Expenses', invoices_path
 
         primary.item :outgoing_calls, 'Outgoing Calls', outgoing_calls_path
         

@@ -5,9 +5,12 @@ Rubill::Application.routes.draw do
   resources :rates do 
     as_routes
   end
-  
+
+  resources :consults do  
+      post 'filter_calls', :on => :collection
+  end
+
   resources :invoices do 
-    post 'filter_calls', :on => :collection
     member do
       get :get_pdf
     end

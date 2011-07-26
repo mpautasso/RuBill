@@ -1,82 +1,32 @@
 - if !@invoices.empty?
   .container
-    .span-20
+    .span-22
       .span-4
         Invoice #
-      .span-8
+      .span-4
+        From
+      .span-4
+        To
+      .span-6
         User Name
-      .span-8.last
+      .span-4.last
         Total
 
-    .span-2.prepend-1
-      = link_to "New Invoice", new_invoice_path()
-
-
     - @invoices.each do |invoice|
-      .span-20
+      .span-22
         .span-4
           = invoice.id
-        .span-8
+        .span-4
+          = invoice.from
+        .span-4
+          = invoice.to
+        .span-6
           = invoice.user.email
-
-      
+        .span-4.last
+          = number_to_currency(invoice.total)
 
 - else
-  .test
+  %h2
     There are not invoices saved yet
 
-
-%br
-
-  = form_for Invoice.new, :url => filter_calls_invoices_path(), :remote => true do |f|
-    .column
-      .span-14
-        = f.label :from, 'From: '
-        = f.text_field(:from, :size=>8, :autocomplete => :off) 
-
-        = f.label :to, 'To:'
-        = f.text_field(:to, :size=>8, :autocomplete => :off) 
-
-        = f.submit 'Go'
-
-        = link_to "current month spending", "#", :id => 'spending'
-%br
-  #calls
-    
-:javascript
-
-  $(function() {
-    var dates = $( "#invoice_from, #invoice_to" ).datepicker({
-
-      changeMonth: true,
-      changeYear: true,
-      numberOfMonths: 2,
-      dateFormat: 'yy-mm-dd',
-      showAnim: 'fade',
-      duration: 'slow',
-      
-      onSelect: function( selectedDate ) {
-        var option = this.id == "invoice_from" ? "minDate" : "maxDate", 
-        instance = $( this ).data( "datepicker" ),
-        date = $.datepicker.parseDate(instance.settings.dateFormat ||
-        $.datepicker._defaults.dateFormat, selectedDate, instance.settings );
-
-        dates.not( this ).datepicker( "option", option, date );
-      }
-    });
-  });
-
-  $(document).ready(function(){
-    $("#spending").click(function(){
-      var currentTime = new Date()
-      var month = currentTime.getMonth() + 1
-      var day = currentTime.getDate()
-      var year = currentTime.getFullYear()
-
-      var from = year + "-" + month + "-1";
-      var to = year + "-" + month + "-" + day;
-      $("#invoice_from").val(from);
-      $("#invoice_to").val(to);
-    });
-  });
 

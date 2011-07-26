@@ -18,7 +18,24 @@ class Invoice < ActiveRecord::Base
   has_many :failed_calls
 
 
-#  def total
-#    items.map(&:cost).sum
-#  end
+  def populate
+    if user.admin?
+      @calls = OutgoingCall.created_since(from)
+    else
+      if user.device
+        @calls = OutgoingCall.created_since(from).created_until(to).select{|x| x.src == user.device.exten}
+      else
+        @calls = []
+      end
+    end
+
+    @calls.each do |call|
+      self.outgoing_calls << call
+    end
+  end
+
+
+  def total
+    outgoing_calls.inject(0.0){|sum, i| i.cost + sum }
+  end
 end

@@ -21,22 +21,20 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def filter_calls  
-    from = params[:invoice][:from]
-    to = params[:invoice][:to]
 
-    if current_user.admin?
-      @calls = OutgoingCall.created_since(from)
+  def create
+    @from = params[:from]
+    @to = params[:to]
+
+    @invoice = Invoice.new(:user => current_user)
+    @invoice.from = @from.to_date
+    @invoice.to = @to.to_date
+    @invoice.populate
+
+    if @invoice.save
+      redirect_to invoices_path, :notice => 'Success'
     else
-      if current_user.device
-        @calls = OutgoingCall.created_since(from).created_until(to).select{|x| x.src == current_user.device.exten}
-      else
-        @calls = []
-      end
-    end
-
-    respond_to do |format|
-      format.js
+      redirect_to invoices_path, :error => 'Error'
     end
   end
 
