@@ -1,7 +1,7 @@
 %h1 Editing rate
 
 .container{:style => "width:600px"}
-  = form_for @rate, :url => rater_path(@rate), :remote => true do |f|
+  = form_for @rate, :url => rates_path(@rate), :remote => true do |f|
     #errors
 
     = render :partial => 'form', :locals => {:f => f}
