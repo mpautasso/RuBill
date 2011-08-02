@@ -1,29 +1,21 @@
-- if !@invoices.empty?
-  .container
-    .span-22
-      .span-4
-        Invoice #
-      .span-4
-        From
-      .span-4
-        To
-      .span-6
-        User Name
-      .span-4.last
-        Total
+%h1 Listing saved expenses
 
+- if !@invoices.empty?
+  %table#invoices
+    %tr.pretty
+      %th Invoice
+      %th From
+      %th To
+      %th User
+      %th Total
+    
     - @invoices.each do |invoice|
-      .span-22
-        .span-4
-          = invoice.id
-        .span-4
-          = invoice.from
-        .span-4
-          = invoice.to
-        .span-6
-          = invoice.user.email
-        .span-4.last
-          = number_to_currency(invoice.total)
+      %tr{:id => "invoice_#{invoice.id}", :class => "body #{cycle(:odd, :even)}"}
+        %td= invoice.id
+        %td= invoice.from
+        %td= invoice.to
+        %td= invoice.user.email
+        %td= number_to_currency(invoice.total)
 
 - else
   %h2
