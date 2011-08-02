@@ -1,5 +1,6 @@
-%h1 Editing device
-
+#header-popup
+  %h1 Editing device
+  %br
 .container{:style => "width:600px"}
   = form_for @device, :url => device_path(@device), :remote => true do |f|
     #errors

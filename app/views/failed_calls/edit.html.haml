@@ -1,5 +1,6 @@
-%h1 Editing failed call
-
+#header-popup
+  %h1 Editing failed call
+  %br
 .container{:style => "width:600px"}
   = form_for @failed_call, :url => failed_call_path(@failed_call), :remote => true do |f|
     #errors

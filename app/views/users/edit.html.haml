@@ -1,5 +1,6 @@
-%h1 Editing user
-
+#header-popup
+  %h1 Editing user
+  %br
 .container{:style => "width:600px"}
   = form_for @user, :url => user_path(@user), :remote => true do |f|
     #errors

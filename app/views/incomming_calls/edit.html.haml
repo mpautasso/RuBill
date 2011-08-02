@@ -1,5 +1,7 @@
-%h1 Editing incomming call
-
+#header-popup
+  %h1 Editing incomming call
+  %br
+  
 .container{:style => "width:600px"}
   = form_for @incomming_call, :url => incomming_call_path(@incomming_call), :remote => true do |f|
     #errors
