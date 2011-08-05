@@ -20,9 +20,8 @@
 #  userfield   :string(255)     default("")
 #  created_at  :datetime
 #  updated_at  :datetime
-#  cost        :integer(4)
+#  cost        :decimal(6, 2)   default(0.0), not null
 #  invoice_id  :integer(4)
-#  device_id   :string(255)
 #  rate_id     :integer(4)
 #
 
