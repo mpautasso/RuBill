@@ -8,17 +8,18 @@
       %th To
       %th User
       %th Total
+      %th
     
     - @invoices.each do |invoice|
       %tr{:id => "invoice_#{invoice.id}", :class => "body #{cycle(:odd, :even)}"}
-        %td= invoice.id
-        %td= invoice.from
-        %td= invoice.to
-        %td= invoice.user.email
-        %td= number_to_currency(invoice.total)
-
+        %td= link_to invoice.id, invoice_path(invoice, :format => 'js'), :class => 'popme'
+        %td= link_to invoice.from.strftime('%m-%d-%Y %H:%M'), invoice_path(invoice, :format => 'js'), :class => 'popme'
+        %td= link_to invoice.to.strftime('%m-%d-%Y %H:%M'), invoice_path(invoice, :format => 'js'), :class => 'popme'
+        %td= link_to invoice.user.email, invoice_path(invoice, :format => 'js'), :class => 'popme'
+        %td= link_to number_to_currency(invoice.total), invoice_path(invoice, :format => 'js'), :class => 'popme'
+        %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), invoice, :confirm => 'Are you sure?', |
+                                                      :method => :delete, |
+                                                      :remote => true
 - else
-  %h2
-    There are not invoices saved yet
-
-
+  %h2 
+    There are not invoices saved yet !!!

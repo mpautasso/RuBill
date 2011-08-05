@@ -177,20 +177,65 @@ tr.body td{
 }
   
 #search {
-float: right;
-margin-top: -50px;
-margin-right: 80px;
+  float: right;
+  margin-top: -50px;
+  margin-right: 80px;
 }
 
 #submit .button {
-float: right;
-margin-top: -52px;
-margin-right: 0px;
+  float: right;
+  margin-top: -52px;
+  margin-right: 0px;
 }
 
 .total-cost {
-float: right;
-color: black;
-margin-right: 37px;
-font: bold 14px Verdana, Helvetica, Arial;
+  float: right;
+  color: black;
+  margin-right: 37px;
+  font: bold 14px Verdana, Helvetica, Arial;
 }
+
+.total-cost-outgoingcall {
+  float: right;
+  color: black;
+  margin-right: 0px;
+  font: bold 14px Verdana, Helvetica, Arial;
+}
+
+table tr td a {
+  color: #0066CC;
+  text-decoration: none;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #F0F0F0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #C00;
+  color: white;
+}
+
+#error_explanation p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+  margin-bottom: 0; 
+}
+

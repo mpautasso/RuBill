@@ -8,6 +8,7 @@
 #  updated_at :datetime
 #  from       :datetime
 #  to         :datetime
+#  total      :decimal(6, 2)   default(0.0), not null
 #
 
 require 'spec_helper'

@@ -8,7 +8,7 @@ class ConsultsController < ApplicationController
     @to = params[:invoice][:to]
 
     if current_user.admin?
-      @calls = OutgoingCall.created_since(@from)
+      @calls = OutgoingCall.created_since(@from).created_until(@to)
     else
       if current_user.device
         @calls = OutgoingCall.created_since(@from).created_until(@to).select{|x| x.src == current_user.device.exten}

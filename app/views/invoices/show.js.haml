@@ -1,0 +1,35 @@
+#header-popup
+  %h1 Outgoing calls from invoice #{@invoice.id}
+  %br
+
+%h2
+  = "Calls from #{@invoice.from.strftime('%m/%d/%Y')} to #{@invoice.to.strftime('%m/%d/%Y')}"
+  
+- if @invoice.outgoing_calls.any?
+  %table#invoices
+    %tr.pretty
+      %th Calldate
+      %th Source
+      %th Destination
+      %th Duration
+      %th Bill seconds
+      %th Cost
+    
+    - @invoice.outgoing_calls.each do |outgoing_call|
+      %tr{:id => "invoice_#{outgoing_call.id}", :class => "body #{cycle(:odd, :even)}"}
+        %td= outgoing_call.calldate
+        %td= outgoing_call.src
+        %td= outgoing_call.dst
+        %td= outgoing_call.duration
+        %td= outgoing_call.billsec
+        %td= number_to_currency(outgoing_call.cost)
+
+  .total-cost-outgoingcall
+    Total cost:
+    = number_to_currency(@invoice.total)
+      
+
+- else
+  %h2
+    There are not outgoing calls in this invoice !!!
+    

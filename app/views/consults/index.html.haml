@@ -9,7 +9,7 @@
       = f.label :to, 'To:'
       = f.text_field(:to, :size=>8, :autocomplete => :off) 
 
-      = f.submit 'Go'
+      = f.submit 'Go', :id => 'submiting'
 
       = link_to "current month spending", "#", :id => 'spending'
 %br
@@ -18,16 +18,18 @@
 :javascript
 
   $(function() {
-    var dates = $( "#invoice_from, #invoice_to" ).datepicker({
 
+    var dates = $( "#invoice_from, #invoice_to" ).datepicker({
+      
       changeMonth: true,
       changeYear: true,
       numberOfMonths: 2,
       dateFormat: 'yy-mm-dd',
       showAnim: 'fade',
       duration: 'slow',
-      
-      onSelect: function( selectedDate ) {
+
+      onSelect: function( selectedDate ) {    
+
         var option = this.id == "invoice_from" ? "minDate" : "maxDate", 
         instance = $( this ).data( "datepicker" ),
         date = $.datepicker.parseDate(instance.settings.dateFormat ||
@@ -40,6 +42,7 @@
 
   $(document).ready(function(){
     $("#spending").click(function(){
+    
       var currentTime = new Date()
       var month = currentTime.getMonth() + 1
       var day = currentTime.getDate()
@@ -51,4 +54,18 @@
       $("#invoice_to").val(to);
     });
   });
-
+  
+  
+  $(document).ready(function(){
+    $("#submiting").click(function(){
+      
+      from_tag = $("#invoice_from").attr('value');
+      to_tag = $("#invoice_to").attr('value');
+      
+      if (from_tag == '' || to_tag == ''){
+        alert("Date range can't be blank");
+        return false;
+      }
+     
+    });
+  });

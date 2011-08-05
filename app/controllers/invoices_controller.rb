@@ -17,7 +17,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @invoice }
-      format.pdf { render :layout => false } # Add this line
+      format.js   { render :show, :layout => false}
     end
   end
 
@@ -35,6 +35,17 @@ class InvoicesController < ApplicationController
       redirect_to invoices_path, :notice => 'Success'
     else
       redirect_to invoices_path, :error => 'Error'
+    end
+  end
+  
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    @invoice.destroy
+
+    respond_to do |format|
+      format.js   
+      format.html { redirect_to(invoices_url) }
+      format.xml  { head :ok }
     end
   end
 

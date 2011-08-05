@@ -15,7 +15,7 @@
   = render :partial => 'call', :collection => @calls  
 
 .total-cost
-  Total Cost:
+  Total cost:
   = number_to_currency(@calls.inject(0.0) { |sum, i| sum + i.cost})
 
 
