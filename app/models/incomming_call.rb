@@ -21,7 +21,6 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  invoice_id  :integer(4)
-#  device_id   :string(255)
 #
 
 class IncommingCall < ActiveRecord::Base
