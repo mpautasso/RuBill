@@ -1,5 +1,5 @@
 %tr{:id => "incommingcall_#{incomming_call.id}", :class => "body #{cycle('odd','even')}"}
-  %td= incomming_call.calldate
+  %td= l incomming_call.calldate, :format => :human
   %td= incomming_call.src
   %td= incomming_call.dst
   %td= incomming_call.duration
