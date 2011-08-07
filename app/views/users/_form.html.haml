@@ -21,6 +21,14 @@
 .column
   .span-4
     .field
+      = f.label :device, 'Device exten'
+  .span-6
+    = f.fields_for :device do |device_form|
+      = device_form.text_field :exten, :size => 12
+
+.column
+  .span-4
+    .field
       = f.label :password
   .span-8
     = f.password_field :password

@@ -13,7 +13,7 @@
 #
 
 class Device < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :inverse_of => :device
 
   has_many :outgoing_calls, :foreign_key => :src, :primary_key => :exten
   has_many :incomming_calls, :foreign_key => :src, :primary_key => :exten
@@ -23,7 +23,6 @@ class Device < ActiveRecord::Base
                     :uniqueness => true
   
   validates :user, :presence => true
-  validates_associated :user
   
   def to_s
     exten

@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-  
   before_filter :authenticate
   before_filter :require_admin
   helper_method :sort_column, :sort_direction
 
-  # GET /users
-  # GET /users.xml
   def index
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
 
@@ -16,8 +13,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
   def show
     @user = User.find(params[:id])
 
@@ -27,10 +22,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
+    @user.build_device
     session[:user_return_to] = users_path
 
     respond_to do |format|
@@ -40,14 +34,12 @@ class UsersController < ApplicationController
 
   end
 
-  # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @user.build_device if @user.device.nil?
     render 'edit', :layout => false
   end
 
-  # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
 
@@ -64,8 +56,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
 
@@ -82,8 +72,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -95,14 +83,12 @@ class UsersController < ApplicationController
     end
   end
   
- private
-  
+private
   def sort_column
     User.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end  
-
+  end
 end
