@@ -1,0 +1,26 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+
+%table#outgoingcalls
+  %tr.pretty.ajaxifyme
+    %th= sortable "calldate", "Call date"
+    %th= sortable "src", "Source"
+    %th= sortable "dst", "Destination"
+    %th= sortable "duration", "Duration"
+    %th= sortable "billsec", "Bill seconds"
+    %th= sortable "cost"
+    %th
+    - if current_user.admin?
+      %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_outgoing_call_path, :class => 'popme'
+
+  = render :partial => 'outgoing_call', :collection => @outgoing_calls
+
+%br
+  = will_paginate
+  
+:javascript
+  $(function() {
+    $("a.popme").fancybox({
+          'padding':  7
+    });
+  });
