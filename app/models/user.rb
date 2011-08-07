@@ -56,6 +56,10 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
+
+  def full_name
+    [name, last_name].join(' ')
+  end
   
   def self.search(search)
     if search

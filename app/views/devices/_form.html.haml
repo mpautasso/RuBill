@@ -3,7 +3,7 @@
     .field
       = f.label :user_id
   .span-8
-    = f.select 'user_id', User.all.collect{|x| [x.name, x.id]}
+    = f.select 'user_id', User.all.collect{|x| [x.full_name, x.id]}
 
 .column 
   .span-4
