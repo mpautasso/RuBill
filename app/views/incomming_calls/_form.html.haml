@@ -45,7 +45,7 @@
     });
   });
 
-  $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@incomming_call.calldate}", dateFormat: "yy-mm-dd"});
+  $(function(){
+    $('#calldate').datepicker({ inline: true, defaultDate: "#{@incomming_call.calldate.to_date}", dateFormat: "yy-mm-dd"});
   });
 
