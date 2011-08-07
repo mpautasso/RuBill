@@ -46,6 +46,8 @@
   });
 
   $(function() {
-    $('#calldate').datepicker({ inline: true, defaultDate: "#{@outgoing_call.calldate}", dateFormat: "yy-mm-dd"});
+    $('#calldate').datepicker({ inline: true, 
+                                defaultDate: "#{@outgoing_call.calldate.nil? ? Date.today : @outgoing_call.calldate.to_date}", 
+                                dateFormat: "yy-mm-dd"});
   });
 
