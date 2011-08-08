@@ -3,7 +3,12 @@ class InvoicesController < ApplicationController
   before_filter :authenticate
   
   def index
-    @invoices = Invoice.paginate(:per_page => 20, :page => params[:page])
+
+    if current_user.admin?
+      @invoices = Invoice.paginate(:per_page => 20, :page => params[:page]) 
+    else
+      @invoices = Invoice.select{|i| i.user == current_user}.paginate(:per_page => 20, :page => params[:page])
+    end
     
     respond_to do |format|
       format.html # show.html.erb
@@ -32,9 +37,14 @@ class InvoicesController < ApplicationController
     @invoice.to = @to.to_date
     @invoice.populate
 
+
     if @invoice.save
-      redirect_to invoices_path, :notice => 'Success'
+      respond_to do |format|
+        format.js 
+        format.html {redirect_to invoices_path, :notice => 'Success'}
+      end
     else
+
       redirect_to invoices_path, :error => 'Error'
     end
   end

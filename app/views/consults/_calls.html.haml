@@ -18,15 +18,15 @@
   Total cost:
   = number_to_currency(@calls.inject(0.0) { |sum, i| sum + i.cost})
 
-
-= link_to "Save Report", root_url, :id => 'save_report'
-= image_tag ('spin_blue.gif'), :style => "display:none;", :id => "save_spin"
+- if @calls.any?
+  = link_to "Save Report", root_url, :id => 'save_report'
+  = image_tag ('spin_blue.gif'), :style => "display:none;", :id => "save_spin"
 
 :javascript
   $("#save_report").click(function(){
       $.ajax({
           type: "POST",
-          url: '/invoices',
+          url: '/invoices.js',
           data: "from=#{from}&to=#{to}",
           beforeSend: function(){
             $("#save_spin").show();
