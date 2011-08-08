@@ -8,7 +8,7 @@ class IncommingCallsController < ApplicationController
     @incomming_calls = begin_of_association_chain(IncommingCall)
                           .search(params[:search])
                           .order(sort_column + " " + sort_direction)
-                          .paginate(:per_page => 27, :page => params[:page])
+                          .paginate(:per_page => 20, :page => params[:page])
 
     respond_to do |format|
       format.html

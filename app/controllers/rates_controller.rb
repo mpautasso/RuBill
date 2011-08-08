@@ -7,7 +7,8 @@ class RatesController < ApplicationController
   # GET /rates
   # GET /rates.xml
   def index
-    @rates = Rate.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 27, :page => params[:page])
+    @rates = Rate.search(params[:search]).order(sort_column + " " + sort_direction)
+                              .paginate(:per_page => 20, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

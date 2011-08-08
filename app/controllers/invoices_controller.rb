@@ -7,7 +7,8 @@ class InvoicesController < ApplicationController
     if current_user.admin?
       @invoices = Invoice.paginate(:per_page => 20, :page => params[:page]) 
     else
-      @invoices = Invoice.select{|i| i.user == current_user}.paginate(:per_page => 20, :page => params[:page])
+      @invoices = Invoice.select{|i| i.user == current_user}
+                          .paginate(:per_page => 20, :page => params[:page])
     end
     
     respond_to do |format|
