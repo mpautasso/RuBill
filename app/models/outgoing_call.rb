@@ -30,7 +30,7 @@ class OutgoingCall < ActiveRecord::Base
   belongs_to :invoice      
   belongs_to :rate
   
-  before_validation :rating
+  before_validation :rating, :unless => lambda { |oc| oc.cost_changed? }
 
   scope :by_date, lambda {|date| where(:calldate => date)}
 
@@ -58,9 +58,7 @@ class OutgoingCall < ActiveRecord::Base
 
   def applied_rate
     rates = Rate.order('rates.prefix DESC')
-
     result = rates.select{|x| self.dst.start_with?(x.prefix)}
-
     result.empty? ? nil : result.first 
   end
 
