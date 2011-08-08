@@ -36,7 +36,7 @@ class OutgoingCall < ActiveRecord::Base
 
   validates :src, :dst, :calldate, :presence => true
   validates_numericality_of :cost, :duration, :billsec, :greater_than_or_equal_to => 0
-  validates_with CallValidator
+  validates_with CallValidator, :on => :create
 
   scope :by_user, lambda {|user| where(:user_id => user.id) }
 
