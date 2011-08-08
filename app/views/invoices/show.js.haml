@@ -3,7 +3,7 @@
   %br
 
 %h2
-  = "Calls from #{@invoice.from.strftime('%m/%d/%Y')} to #{@invoice.to.strftime('%m/%d/%Y')}"
+  = "Calls from #{l @invoice.from, :format => :short} to #{l @invoice.to, :format => :short}"
   
 - if @invoice.outgoing_calls.any?
   %table#invoices
