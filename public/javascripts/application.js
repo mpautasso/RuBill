@@ -11,12 +11,7 @@ $(function() {
   );  
   
   // Search form.  
-  $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search').submit(function () {  
-    //console.log(this.action);
-    //console.log($(this).serialize());
-
-//    $.get(this.action, $(this).serialize(), null, 'script');
-
+  $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search').submit(function () {
     $.ajax({
         type: "GET",
         dataType: 'script',
@@ -36,5 +31,5 @@ $(function() {
 
     return false;
   });  
-});  
+});
 
