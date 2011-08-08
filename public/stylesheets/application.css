@@ -240,3 +240,31 @@ table tr td a {
   margin-bottom: 0; 
 }
 
+
+h1.title{
+  font-size: 36px;
+  line-height: 34px;
+  color: #333;
+  font-weight: normal;
+  font-family: Interstate, Arial, Helvetica, Sans-Serif;
+  padding-bottom: 13px;
+}
+
+
+h2.title{
+  font-size: 26px;
+  line-height: 34px;
+  color: #333;
+  font-weight: normal;
+  font-family: Interstate, Arial, Helvetica, Sans-Serif;
+  padding-bottom: 13px;
+}
+
+
+p.nice_text{
+  font-size: 15px;
+  line-height: 24px;
+  color: #666;
+  font-family: UniversCondensed, Arial, Helvetica, Sans-Serif;
+  padding-bottom: 16px;
+}
