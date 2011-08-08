@@ -1,0 +1,18 @@
+- if !@invoices.empty?
+  %table#invoices
+    %tr.pretty
+      %th Invoice
+      %th From
+      %th To
+      %th User
+      %th Total
+      %th
+
+    = render :partial => 'invoice', :collection => @invoices
+
+  %br
+    = will_paginate
+
+- else
+  %h2 
+    There are not invoices saved yet !!!

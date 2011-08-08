@@ -3,11 +3,12 @@ class InvoicesController < ApplicationController
   before_filter :authenticate
   
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.paginate(:per_page => 20, :page => params[:page])
     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @invoice }
+      format.js # index.js.haml
     end
     
   end

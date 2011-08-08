@@ -30,7 +30,7 @@ class OutgoingCall < ActiveRecord::Base
   belongs_to :invoice      
   belongs_to :rate
   
-  before_validation :rating, :on => :create
+  before_validation :rating
 
   scope :by_date, lambda {|date| where(:calldate => date)}
 
@@ -63,7 +63,7 @@ class OutgoingCall < ActiveRecord::Base
 
     result.empty? ? nil : result.first 
   end
-  
+
   def self.search(search)
     if search
       where('dst LIKE ?', "%#{search}%")
@@ -71,6 +71,5 @@ class OutgoingCall < ActiveRecord::Base
       scoped
     end
   end
-  
-end
 
+end

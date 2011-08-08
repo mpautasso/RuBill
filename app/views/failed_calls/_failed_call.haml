@@ -1,5 +1,5 @@
 %tr{:id => "failedcall_#{failed_call.id}", :class => "body #{cycle('odd','even')}"}
-  %td= failed_call.calldate
+  %td= l failed_call.calldate, :format => :human
   %td= failed_call.src
   %td= failed_call.dst
   %td= failed_call.duration

@@ -1,25 +1,4 @@
 %h1 Listing saved expenses
 
-- if !@invoices.empty?
-  %table#invoices
-    %tr.pretty
-      %th Invoice
-      %th From
-      %th To
-      %th User
-      %th Total
-      %th
-    
-    - @invoices.each do |invoice|
-      %tr{:id => "invoice_#{invoice.id}", :class => "body #{cycle(:odd, :even)}"}
-        %td= link_to invoice.id, invoice_path(invoice, :format => 'js'), :class => 'popme'
-        %td= link_to l(invoice.from, :format => :human), invoice_path(invoice, :format => 'js'), :class => 'popme'
-        %td= link_to l(invoice.to, :format => :human), invoice_path(invoice, :format => 'js'), :class => 'popme'
-        %td= link_to invoice.user.email, invoice_path(invoice, :format => 'js'), :class => 'popme'
-        %td= link_to number_to_currency(invoice.total), invoice_path(invoice, :format => 'js'), :class => 'popme'
-        %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), invoice, :confirm => 'Are you sure?', |
-                                                      :method => :delete, |
-                                                      :remote => true
-- else
-  %h2 
-    There are not invoices saved yet !!!
+#invoice_table
+  = render 'invoices'
