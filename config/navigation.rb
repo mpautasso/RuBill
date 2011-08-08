@@ -20,6 +20,7 @@ SimpleNavigation::Configuration.run do |navigation|
         primary.item :failed_calls, 'Failed Calls', failed_calls_path
         primary.item :invoices, 'Consult', consults_path
         primary.item :invoices, 'Saved Expenses', invoices_path
+        primary.item :csv_files, "CSV Files", csv_files_path
       end
       
       primary.item :logout, 'Logout', destroy_user_session_url 

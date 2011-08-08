@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   attr_accessible :remember_me, :device_attributes
 
   has_many :invoices
+  has_many :csv_files
   has_one :device, :inverse_of => :user
   accepts_nested_attributes_for :device, :reject_if => proc { |attributes| attributes['exten'].blank? }
   

@@ -8,7 +8,6 @@ class HomeController < ApplicationController
   def index
   end
 
-
   def import
     call_rake "import_calls"
     redirect_to root_path()

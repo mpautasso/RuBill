@@ -21,6 +21,8 @@ gem 'annotate', '2.4.0'
 #gem "prawn", "~> 0.11.1"
 gem 'rake'
 
+gem 'paperclip'
+gem 'mime-types', :require => 'mime/types'
 
 group :development, :test do
   gem 'capybara'

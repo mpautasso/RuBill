@@ -1,6 +1,8 @@
 Rubill::Application.routes.draw do
 
-  match "import", :to => "home#import", :via => "post"
+  resources :csv_files do
+    match "import", :via => "post"
+  end
  
   resources :rates do 
     as_routes
