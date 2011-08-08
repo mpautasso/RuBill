@@ -27,7 +27,8 @@ class FailedCall < ActiveRecord::Base
   belongs_to :device, :foreign_key => 'src', :primary_key => 'exten', :inverse_of => :failed_calls
   belongs_to :invoice
   
-  validates :src, :presence => true
+  validates :src, :dst, :calldate, :presence => true
+  validates_numericality_of :duration, :billsec, :greater_than_or_equal_to => 0
 
   def self.search(search)
     if search

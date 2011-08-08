@@ -26,8 +26,9 @@
 class IncommingCall < ActiveRecord::Base
   belongs_to :device, :foreign_key => 'src', :primary_key => 'exten', :inverse_of => :incomming_calls
   belongs_to :invoice
-  
-  validates :src, :dst, :presence => true
+
+  validates :src, :dst, :calldate, :presence => true
+  validates_numericality_of :duration, :billsec, :greater_than_or_equal_to => 0
   
   scope :by_date, lambda {|date| where(:calldate => date)}
   

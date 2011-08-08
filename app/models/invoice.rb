@@ -20,6 +20,7 @@ class Invoice < ActiveRecord::Base
   
   before_save :calculate_total
 
+  validates :user, :from, :to, :presence => true
 
   def populate
     if user.admin?

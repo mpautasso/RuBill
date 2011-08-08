@@ -15,7 +15,10 @@
 class Rate < ActiveRecord::Base
 
   has_many :outgoing_calls
-  
+
+  validates :prefix, :initial_time, :initial_cost, :interval_time, :interval_cost, :presence => true
+  validates_numericality_of :initial_time, :initial_cost, :interval_time, :interval_cost, :greater_than_or_equal_to => 0
+
   def self.search(search)
     if search
       where('prefix LIKE ?', "%#{search}%")

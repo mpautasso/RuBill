@@ -34,9 +34,10 @@ class OutgoingCall < ActiveRecord::Base
 
   scope :by_date, lambda {|date| where(:calldate => date)}
 
-  validates :src, :dst, :presence => true
-  validates_with CallValidator, :on => :create
-  
+  validates :src, :dst, :calldate, :presence => true
+  validates_numericality_of :cost, :duration, :billsec, :greater_than_or_equal_to => 0
+  validates_with CallValidator
+
   scope :by_user, lambda {|user| where(:user_id => user.id) }
 
   scope :created_since, lambda { |ago| where("outgoing_calls.calldate >= ?", ago) }
