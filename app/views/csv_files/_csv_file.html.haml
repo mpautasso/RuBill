@@ -1,0 +1,30 @@
+%tr{:id => "csv_file_#{csv_file.id}", :class => "body #{cycle(:odd, :even)}"}
+  %td= csv_file.csv_file_name
+  %td= csv_file.user.full_name
+  %td= csv_file.imported ? 'Ok' : 'X'
+  %td
+    = form_for :csv_file, :url => csv_file_import_path(csv_file) do |f|
+      = f.submit 'Import'
+  %td
+  %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), csv_file, :confirm => 'Are you sure?', |
+                                :method => :delete, |
+                                :remote => true
+                                
+:javascript
+  $(document).ready(function() {
+    $(".import_link").click( function(){
+      $.ajax({
+          type: "POST",
+          url: '/import',
+          beforeSend: function(){
+            $("#import_spin").show();
+          },
+          complete: function() {
+            $("#import_spin").hide();
+          }
+      });
+
+      return false;
+    });
+  });
+
