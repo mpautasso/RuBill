@@ -34,6 +34,7 @@ class CsvFilesController < ApplicationController
     @csv_file = CsvFile.new
 
     respond_to do |format|
+      format.js
       format.html { render :template => 'csv_files/new', :layout => false }
       format.xml  { render :xml => @csv_file }
     end
