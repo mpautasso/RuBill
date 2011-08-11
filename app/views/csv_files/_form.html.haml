@@ -6,9 +6,15 @@
         - @csv_file.errors.full_messages.each do |msg|
           %li= msg
 
+= form_for(@csv_file, :html => { :multipart => true }) do |f|
+  = f.hidden_field 'user_id', :value => current_user.id
   .field
-    = f.label :file_name
-    = f.file_field :file_name
+    = f.label :csv
+    = f.file_field :csv
 
-  .actions
-    = f.submit 'Save'
+  %br
+  .column 
+    .prepend-8
+      = f.submit 'Save', :id => 'submit_button'
+    
+    
