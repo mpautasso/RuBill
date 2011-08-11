@@ -1,4 +1,4 @@
-%tr{:id => "csv_file_#{csv_file.id}", :class => "body #{cycle(:odd, :even)}"}
+%tr{:id => "csvfile_#{csv_file.id}", :class => "body #{cycle(:odd, :even)}"}
   %td= csv_file.csv_file_name
   %td= csv_file.user.full_name
   %td= csv_file.imported ? 'Ok' : 'X'
