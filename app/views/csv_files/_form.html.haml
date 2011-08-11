@@ -1,20 +1,11 @@
-= form_for @csv_file do |f|
-  -if @csv_file.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@csv_file.errors.count, "error")} prohibited this csv_file from being saved:"
-      %ul
-        - @csv_file.errors.full_messages.each do |msg|
-          %li= msg
+= f.hidden_field 'user_id', :value => current_user.id
 
-= form_for(@csv_file, :html => { :multipart => true }) do |f|
-  = f.hidden_field 'user_id', :value => current_user.id
-  .field
-    = f.label :csv
-    = f.file_field :csv
+.field
+  = f.label :csv
+  = f.file_field :csv
 
-  %br
-  .column 
-    .prepend-8
-      = f.submit 'Save', :id => 'submit_button'
-    
-    
+%br
+.column 
+  .prepend-8
+    = f.submit 'Save', :id => 'submit_button'
+
