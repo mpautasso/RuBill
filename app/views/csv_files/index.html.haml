@@ -1,44 +1,11 @@
-%h1 Listing csv_files
+%h1.title CSV files
 
-%table
-  %tr
-    %th File name
-    %th User
-    %th Imported
-    %th
-    %th
-    %th
-
-  - @csv_files.each do |csv_file|
-    %tr
-      %td= csv_file.file_name
-      %td= csv_file.user.full_name
-      %td= csv_file.imported ? 'Ok' : 'X'
-      %td
-        = form_for :csv_file, :url => csv_file_import_path(csv_file) do |f|
-          = f.submit 'Import'
-      %td= link_to 'Edit', edit_csv_file_path(csv_file)
-      %td= link_to 'Destroy', csv_file, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Csv file', new_csv_file_path
-
-:javascript
-  $(document).ready(function() {
-    $(".import_link").click( function(){
-      $.ajax({
-          type: "POST",
-          url: '/import',
-          beforeSend: function(){
-            $("#import_spin").show();
-          },
-          complete: function() {
-            $("#import_spin").hide();
-          }
-      });
-
-      return false;
-    });
-  });
-
+= form_tag csv_files_path, :method => 'get', :id => "csv_files_search" do
+  %p
+    = text_field_tag :search, params[:search], :placeholder => 'Enter the file name to search...'
+    #submit
+      .button
+        = submit_tag "Search", :csv_file => nil
+  %p
+  #csv_files_table
+    = render 'csv_files'
