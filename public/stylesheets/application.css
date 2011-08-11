@@ -154,6 +154,7 @@ tr.body td{
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  margin-left: 500px
 }
 
 #header-popup h1{  
