@@ -1,6 +1,7 @@
 class CsvFilesController < ApplicationController
-
+  before_filter :authenticate
   helper_method :sort_column, :sort_direction
+  before_filter :require_admin, :except => [:index, :show]
   
   # GET /csv_files
   # GET /csv_files.xml
