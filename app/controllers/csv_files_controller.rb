@@ -86,6 +86,7 @@ class CsvFilesController < ApplicationController
     @csv_file.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(csv_files_url) }
       format.xml  { head :ok }
     end
