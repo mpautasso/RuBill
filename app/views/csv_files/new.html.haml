@@ -1,5 +1,8 @@
-%h1 New csv_file
+#header-popup
+  %h1 New CSV file
+  %br
+.container{:style => "width:500px"}
+  = form_for @csv_file, :url => csv_files_path, :remote => true do |f|
+    #errors
 
-= render 'form'
-
-= link_to 'Back', csv_files_path
+    = render :partial => 'form', :locals => {:f => f}
