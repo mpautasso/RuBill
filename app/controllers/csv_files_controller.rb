@@ -34,7 +34,6 @@ class CsvFilesController < ApplicationController
     @csv_file = CsvFile.new
 
     respond_to do |format|
-      format.js
       format.html { render :template => 'csv_files/new', :layout => false }
       format.xml  { render :xml => @csv_file }
     end
@@ -48,18 +47,17 @@ class CsvFilesController < ApplicationController
   # POST /csv_files
   # POST /csv_files.xml
   def create
-    
     @csv_file = CsvFile.new(params[:csv_file])
-
+    
     respond_to do |format|
       if @csv_file.save
-        format.js
-        format.html { redirect_to(csv_files_url) }
-        format.xml  { render :xml => @csv_file, :status => :created, :location => @csv_file }
+        format.html do
+          redirect_to(csv_files_url, :notice => 'Your csv was uploaded')
+        end
       else
-        format.js { render :error }
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @csv_file.errors, :status => :unprocessable_entity }
+         format.html do
+          redirect_to(csv_files_url, :notice => "Sorry, we can't upload your csv file")
+         end
       end
     end
   end
@@ -95,9 +93,11 @@ class CsvFilesController < ApplicationController
 
 
   def import
-    call_rake "import_calls"
-
+    @csv_file = CsvFile.find(params["csv_file_id"])
+    call_rake "import_calls[#{@csv_file.csv_file_name}]"
+    
     respond_to do |format|
+      @csv_file.update_attribute(:imported, true)
       format.html { redirect_to(csv_files_url) }
       format.xml  { head :ok }
     end
