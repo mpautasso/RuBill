@@ -1,8 +1,8 @@
 class CsvFilesController < ApplicationController
   before_filter :authenticate
-  helper_method :sort_column, :sort_direction
   before_filter :require_admin, :except => [:index, :show]
-  
+  helper_method :sort_column, :sort_direction
+ 
   # GET /csv_files
   # GET /csv_files.xml
   def index
@@ -112,5 +112,5 @@ class CsvFilesController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
-  
+    
 end
