@@ -3,9 +3,9 @@
  
 %table#csvfiles
   %tr.pretty.ajaxifyme
-    %th=sortable "file_name", "File name"
-    %th=sortable "User"
-    %th=sortable "Imported"
+    %th=sortable "csv_file_name", "File name"
+    %th=sortable "user_id", "User"
+    %th=sortable "imported"
     %th
     %th
     %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_csv_file_path, :class => 'popme'
