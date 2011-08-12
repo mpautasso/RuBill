@@ -1,0 +1,16 @@
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
+ 
+%table#csvfiles
+  %tr.pretty.ajaxifyme
+    %th=sortable "csv_file_name", "File name"
+    %th=sortable "user_id", "User"
+    %th=sortable "imported"
+    %th
+    %th
+    %th= link_to image_tag("my_images/add.png", :alt => "New", :size => "24x24"), new_csv_file_path, :class => 'popme'
+      
+  = render :partial => 'csv_file', :collection => @csv_files
+
+%br
+  = will_paginate

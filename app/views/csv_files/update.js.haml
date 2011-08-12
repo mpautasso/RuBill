@@ -1,12 +1,12 @@
 $.fancybox.close();
 
-$("#news").html("Rates was updated succesfully");
+$("#news").html("CSV was updated succesfully");
 
 $('#news').delay(500).fadeIn(2500, function() {
 $(this).delay(1500).fadeOut(4000);
 });
 
-$("tr#rate_#{@rate.id}").replaceWith("#{escape_javascript(render(:partial => @rate))}");
+$("tr#csv_file_#{@csv_file.id}").replaceWith("#{escape_javascript(render(:partial => @csv_file))}");
 
 $(function() {
 $("a.popme").fancybox({'padding':  7});

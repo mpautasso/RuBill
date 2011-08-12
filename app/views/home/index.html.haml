@@ -14,21 +14,7 @@
 
 
   .column
-    .span-4
-      &nbsp;
-      - if current_user.admin?
-        = image_tag ('database-import.png')
-    .span-10
-      &nbsp;
-      - if current_user.admin?
-        %h2
-          Import Calls
-        %p.nice_text
-          Click to grab calls from db/calls.csv 
-        = button_to "Import Calls", import_path(), :id =>'import_button'
-        = image_tag ('spin_blue.gif'), :style => "display:none;", :id => "import_spin"
-    .span-8
-      = link_to logo
+    = link_to logo
 
 - content_for(:info) do
   Welcome to your dashboard...
