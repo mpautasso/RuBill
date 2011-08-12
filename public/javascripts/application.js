@@ -11,7 +11,7 @@ $(function() {
   );  
   
   // Search form.  
-  $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search').submit(function () {
+  $('#users_search, #devices_search, #outgoingcalls_search, #incommingcalls_search, #failedcalls_search, #rates_search, #csvfiles_search').submit(function () {
     $.ajax({
         type: "GET",
         dataType: 'script',
