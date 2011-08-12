@@ -1,7 +1,9 @@
 = f.hidden_field 'user_id', :value => current_user.id
 
-.field
-  = f.label :csv
+.span-2 
+  .field
+    = f.label :csv, 'CSV file:'
+.span-6 
   = f.file_field :csv
 
 %br
