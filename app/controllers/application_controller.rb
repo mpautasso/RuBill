@@ -2,12 +2,12 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   protect_from_forgery
   
-  ActiveScaffold.set_defaults do |config|
-    config.ignore_columns.add [:created_at, :updated_at]
-    config.theme = :blue
+#  ActiveScaffold.set_defaults do |config|
+#    config.ignore_columns.add [:created_at, :updated_at]
+#    config.theme = :blue
 
-    config.list.per_page = 20     
-  end
+#    config.list.per_page = 20     
+#  end
 
   def call_rake(task, options = {})
     options[:rails_env] ||= Rails.env
@@ -34,4 +34,3 @@ class ApplicationController < ActionController::Base
     def check_device_existence
       redirect_to root_path, :notice => 'User has not device associate yet' unless current_user.device
     end
-end
