@@ -14,11 +14,7 @@ gem "active_scaffold_export", ">= 3.0.6"
 gem "simple-navigation", ">= 3.0.0"
 gem 'will_paginate',:git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'annotate', '2.4.0'
-#gem "prawn", "~> 0.11.1"
 gem 'rake'
 
 gem 'paperclip'
