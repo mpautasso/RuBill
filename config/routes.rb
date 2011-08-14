@@ -5,7 +5,6 @@ Rubill::Application.routes.draw do
   end
  
   resources :rates do 
-    as_routes
   end
 
   resources :consults do  
@@ -19,19 +18,15 @@ Rubill::Application.routes.draw do
   end
   
   resources :outgoing_calls do 
-    as_routes
   end
   
   resources :incomming_calls do 
-    as_routes
   end
   
   resources :failed_calls do 
-    as_routes
   end
   
   resources :rates do 
-    as_routes
   end
   
   root :to => 'home#index'
@@ -46,7 +41,6 @@ Rubill::Application.routes.draw do
   resources :users 
   
   resources :devices do 
-    as_routes
   end
 
 end
