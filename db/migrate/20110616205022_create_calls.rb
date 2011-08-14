@@ -1,7 +1,7 @@
 class CreateCalls < ActiveRecord::Migration
   def self.up
     create_table :outgoing_calls do |t|
-      t.datetime :calldate, :default => '0000-00-00 00:00:00'
+      t.datetime :calldate
       t.string :clid, :limit => 80, :default => ''
       t.string :src, :limit => 80, :default => ''
       t.string :dst, :limit => 80, :default => ''
@@ -22,7 +22,7 @@ class CreateCalls < ActiveRecord::Migration
 
 
     create_table :incomming_calls do |t|
-      t.datetime :calldate, :default => '0000-00-00 00:00:00'
+      t.datetime :calldate
       t.string :clid, :limit => 80, :default => ''
       t.string :src, :limit => 80, :default => ''
       t.string :dst, :limit => 80, :default => ''
@@ -43,7 +43,7 @@ class CreateCalls < ActiveRecord::Migration
 
 
     create_table :failed_calls do |t|
-      t.datetime :calldate, :default => '0000-00-00 00:00:00'
+      t.datetime :calldate
       t.string :clid, :limit => 80, :default => ''
       t.string :src, :limit => 80, :default => ''
       t.string :dst, :limit => 80, :default => ''
