@@ -38,7 +38,8 @@ Rubill::Application.routes.draw do
     :registrations => 'registrations'
   }
   
-  resources :users 
+  resources :users do
+  end
   
   resources :devices do 
   end
