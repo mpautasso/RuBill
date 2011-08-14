@@ -13,7 +13,7 @@ gem "simple-navigation", ">= 3.0.0"
 gem 'will_paginate',:git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 gem 'annotate', '2.4.0'
-gem 'rake'
+gem 'rake', "0.8.7"
 
 gem 'paperclip'
 gem 'mime-types', :require => 'mime/types'
