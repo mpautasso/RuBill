@@ -3,7 +3,7 @@
 
 = form_tag incomming_calls_path, :method => 'get', :id => "incommingcalls_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter the call date to search...'
+    = text_field_tag :search, params[:search], :placeholder => 'Enter call date to search...'
     #submit
       .button    
         = submit_tag "Search", :name => nil

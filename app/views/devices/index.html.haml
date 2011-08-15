@@ -2,7 +2,7 @@
 
 = form_tag devices_path, :method => 'get', :id => "devices_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter the exten to search...'
+    = text_field_tag :search, params[:search], :placeholder => 'Enter exten to search...'
     #submit
       .button
         = submit_tag "Search", :exten => nil

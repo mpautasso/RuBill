@@ -2,7 +2,7 @@
 
 = form_tag rates_path, :method => 'get', :id => "rates_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter the prefix to search...'
+    = text_field_tag :search, params[:search], :placeholder => 'Enter prefix to search...'
     #submit
       .button
         = submit_tag "Search", :prefix => nil

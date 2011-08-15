@@ -2,7 +2,7 @@
 
 = form_tag users_path, :method => 'get', :id => "users_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter the lastname to search...'
+    = text_field_tag :search, params[:search], :placeholder => 'Enter lastname to search...'
     #submit
       .button
         = submit_tag "Search", :last_name => nil

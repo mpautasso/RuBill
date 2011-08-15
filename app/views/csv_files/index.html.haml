@@ -2,7 +2,7 @@
 
 = form_tag csv_files_path, :method => 'get', :id => "csv_files_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter the file name to search...'
+    = text_field_tag :search, params[:search], :placeholder => 'Enter file name to search...'
     #submit
       .button
         = submit_tag "Search", :csv_file => nil
