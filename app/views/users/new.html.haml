@@ -1,5 +1,5 @@
 #header-popup
-  %h1 New user
+  %h1=t(:add_user)
   %br
 .container{:style => "width:500px"}
   = form_for @user, :url => create_user_path, :remote => true do |f|

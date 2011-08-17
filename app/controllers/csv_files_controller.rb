@@ -3,8 +3,6 @@ class CsvFilesController < ApplicationController
   before_filter :require_admin, :except => [:index, :show]
   helper_method :sort_column, :sort_direction
  
-  # GET /csv_files
-  # GET /csv_files.xml
   def index
     @csv_files = CsvFile.search(params[:search])
                       .order(sort_column + " " + sort_direction)
@@ -17,8 +15,6 @@ class CsvFilesController < ApplicationController
     end
   end
 
-  # GET /csv_files/1
-  # GET /csv_files/1.xml
   def show
     @csv_file = CsvFile.find(params[:id])
 
@@ -28,8 +24,6 @@ class CsvFilesController < ApplicationController
     end
   end
 
-  # GET /csv_files/new
-  # GET /csv_files/new.xml
   def new
     @csv_file = CsvFile.new
 
@@ -39,13 +33,10 @@ class CsvFilesController < ApplicationController
     end
   end
 
-  # GET /csv_files/1/edit
   def edit
     @csv_file = CsvFile.find(params[:id])
   end
 
-  # POST /csv_files
-  # POST /csv_files.xml
   def create
     @csv_file = CsvFile.new(params[:csv_file])
     
@@ -62,8 +53,6 @@ class CsvFilesController < ApplicationController
     end
   end
 
-  # PUT /csv_files/1
-  # PUT /csv_files/1.xml
   def update
     @csv_file = CsvFile.find(params[:id])
 
@@ -78,8 +67,6 @@ class CsvFilesController < ApplicationController
     end
   end
 
-  # DELETE /csv_files/1
-  # DELETE /csv_files/1.xml
   def destroy
     @csv_file = CsvFile.find(params[:id])
     @csv_file.destroy

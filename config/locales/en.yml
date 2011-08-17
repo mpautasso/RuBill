@@ -2,13 +2,108 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  sign_in_advice: Please sign in to access this page.
+  forgot_password: 'Forgot your password?'
+  sign_in: Sign in
+  welcome_rubill: 'Welcome to Rubill'
+  navigation_bar: 'Navigation bar'
+  are_sure: 'Are you sure ?'
+  reset_instrucctions: 'Send me reset password instructions'
+  prohibited: 'prohibited this'
+  behin_saved: 'from being saved'
+  were_problems: 'There were problems with the following fields:'
+  
+  # Translate Navigation Bars items
+  home: 'Home'
+  users: 'Users'
+  devices: 'Devices'
+  rates: 'Rates'
+  outgoing_calls: 'Outgoing Calls'  
+  incomming_calls: 'Incomming Calls'  
+  failed_calls: 'Failed Calls'  
+  consult: 'Consulting Expenses'
+  saved_expenses: 'Saved Expenses'          
+  csv_files: 'CSV files import'
+  logout: 'Logout'
+  
+  # users view
+  users: 'Users'
+  lastname_search: 'Enter lastname to search...'
+  search: 'Search'
+  add_user: 'New user'
+  edit_user: 'Editing user'
+  
+  # devices view
+  devices: 'Devices'
+  exten_search: 'Enter exten to search...'
+  search: 'Search'
+  add_device: 'New device'
+  edit_device: 'Editing device'
+  
+  # rates view
+  rates: 'Rates'
+  prefix_search: 'Enter prefix to search...'
+  search: 'Search'  
+  add_rate: 'New rate'
+  edit_rate: 'Updating rate'
+  
+  # outgoing_calls view
+  outgoing_calls: 'Outgoing calls'
+  calldate_search: 'Enter calldate to search...'
+  search: 'Search'  
+  add_outgoingcall: 'New outgoing call'
+  edit_outgoingcall: 'Editing outgoing call'
+  
+  # incomming_calls view
+  incomming_calls: 'Incomming calls'
+  calldate_search: 'Enter calldate to search...'
+  search: 'Search'  
+  add_incommingcall: 'New incomming call'
+  edit_incommingcall: 'Editing incomming call'
+  
+  # failed_calls view
+  failed_calls: 'Failed calls'
+  calldate_search: 'Enter calldate to search...'
+  search: 'Search'
+  add_failedcall: 'New failed call'
+  edit_failedcall: 'Editing failed call'
+  
+  # consult view
+  data_range: 'Insert your data range'
+  from: 'From: '
+  to: 'To: '
+  go: 'Go'
+  month_spending: 'current month spending'
+  calls_from: 'Calls from'
+  calls_to: 'to'
+  total_cost: 'Total cost'
+    
+  # saved expenses view
+  saved_expenses_list: 'Saved expenses'
+  not_invoices: 'There are not invoices saved yet !!!'
+  
+  # csv_files view
+  csv_files: 'CSV files'
+  file_search: 'Enter filename to search...'
+  search: 'Search'
+  add_csvfile: 'New CSV file'
+  csv_file: 'CSV file:'
+  save: 'Save'
+  
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B, %Y"
+  
   time:
     formats:
-      default: "%a, %d %b %Y %H:%M:%S"
-      custom: "%b %e, %Y | %l:%M"
-      human: "%e %b at %I:%M%p"
-      short: "%e %b %Y"
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B, %Y %H:%M"
+      human: "%e %b %Y at %I:%M%p"
+    am: "am"
+    pm: "pm"
 
   activerecord:
     attributes:

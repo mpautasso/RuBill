@@ -1,6 +1,6 @@
 #block-text.block
   .content
-    %h2.title Welcome to Rubill
+    %h2.title=t(:welcome_rubill)
 
   %p.nice_text
     RuBill is a simple interface to administrate your billing calls.
@@ -15,9 +15,6 @@
 
   .column
     = link_to logo
-
-- content_for(:info) do
-  Welcome to your dashboard...
 
 :javascript
   $(document).ready(function() {

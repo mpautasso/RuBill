@@ -1,5 +1,5 @@
 #header-popup
-  %h1 New rate
+  %h1=t(:add_rate)
   %br
 .container{:style => "width:500px"}
   = form_for @rate, :url => rates_path, :remote => true do |f|

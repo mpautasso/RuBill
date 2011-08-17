@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   protect_from_forgery
   
+  before_filter :set_locale
+  
+  
+ 
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
   def call_rake(task, options = {})
     options[:rails_env] ||= Rails.env
     args = options.map { |n, v| "#{n.to_s.upcase}='#{v}'" }

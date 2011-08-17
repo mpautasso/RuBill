@@ -1,17 +1,17 @@
-%h1.title
-  Insert your data range
+%h1.title=t(:data_range)
+
 = form_for Invoice.new, :url => filter_calls_consults_path(), :remote => true do |f|
   .column
     .span-14
-      = f.label :from, 'From: '
+      = f.label t(:from)
       = f.text_field(:from, :size=>8, :autocomplete => :off) 
 
-      = f.label :to, 'To:'
+      = f.label t(:to)
       = f.text_field(:to, :size=>8, :autocomplete => :off) 
 
-      = f.submit 'Go', :id => 'submiting'
+      = f.submit t(:go), :id => 'submiting'
 
-      = link_to "current month spending", "#", :id => 'spending'
+      = link_to t(:month_spending), "#", :id => 'spending'
 %br
   #calls
     

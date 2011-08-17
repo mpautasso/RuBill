@@ -1,5 +1,5 @@
 #header-popup
-  %h1 New device
+  %h1=t(:add_device)
   %br
 .container{:style => "width:500px"}
   = form_for @device, :url => devices_path, :remote => true do |f|

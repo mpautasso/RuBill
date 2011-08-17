@@ -1,11 +1,11 @@
-%h1.title Rates
+%h1.title=t(:rates)
 
 = form_tag rates_path, :method => 'get', :id => "rates_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter prefix to search...'
+    = text_field_tag :search, params[:search], :placeholder => t(:prefix_search)
     #submit
       .button
-        = submit_tag "Search", :prefix => nil
+        = submit_tag t(:search), :prefix => nil
   %p
   #rates_table
     = render 'rates'

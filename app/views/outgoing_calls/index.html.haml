@@ -1,12 +1,11 @@
-%h1.title
-  Outgoing calls
+%h1.title=t(:outgoing_calls)
 
 = form_tag outgoing_calls_path, :method => 'get', :id => "outgoingcalls_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter call date to search...'
+    = text_field_tag :search, params[:search], :placeholder => t(:calldate_search)
     #submit
       .button
-        = submit_tag "Search", :name => nil
+        = submit_tag t(:search), :name => nil
   %p
   #outgoing_calls_table
     = render 'outgoing_calls'

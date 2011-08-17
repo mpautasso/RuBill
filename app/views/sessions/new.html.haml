@@ -1,6 +1,6 @@
 %h1 RuBill 0.1
 .block#block-login
-  %h2 Sign in
+  %h2= t(:sign_in)
   .content.login
     .flash
       - flash.each do |type, message|
@@ -22,7 +22,7 @@
           .right
             %button.button{ :type => "submit" }
               = image_tag "web-app-theme/icons/key.png"
-              Sign in
+              = t(:sign_in)
                 
       = render :partial => "devise/shared/links"
 

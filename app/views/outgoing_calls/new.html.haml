@@ -1,5 +1,5 @@
 #header-popup
-  %h1 New outgoing call
+  %h1=t(:add_outgoingcall)
   %br
 .container{:style => "width:500px"}
   = form_for @outgoing_call, :url => outgoing_calls_path, :remote => true do |f|

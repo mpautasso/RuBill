@@ -1,0 +1,324 @@
+# Spanish translations for Rails
+# by Francisco Fernando García Nieto (ffgarcianieto@gmail.com)
+# contributors:
+#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
+
+"es":
+
+  sign_in_advice: 'Por favor, ingrese su usuario y contraseña para acceder al sitio'
+  forgot_password: '¿Olvidaste tu contraseña?'
+  sign_in: 'Ingresar'
+  welcome_rubill: 'Bienvenido a Rubill'
+  navigation_bar: 'Barra de navegación'
+  are_sure: 'Esta seguro que desea eliminarlo/a ?'
+  reset_instrucctions: 'Enviarme instrucciones para modificar la constraseña'
+  prohibited: 'prohibieron al'
+  behin_saved: 'guardar los cambios'
+  were_problems: 'Se presentaron los siguietes inconvenientes:'
+  
+  # Translate Navigation Bars items
+  home: 'Principal'
+  users: 'Usuarios'
+  devices: 'Dispositivos'
+  rates: 'Tarifas'
+  outgoing_calls: 'Llamadas salientes'  
+  incomming_calls: 'Llamadas entrantes'  
+  failed_calls: 'Llamadas fallidas'  
+  consult: 'Consultas de gastos'
+  saved_expenses: 'Consultas guardadas'          
+  csv_files: 'Importar archivos CSV'
+  logout: 'Salir'
+  
+  # users view
+  users: 'Usuarios'
+  lastname_search: 'Ingresar lastname a buscar...'
+  search: 'Buscar'
+  add_user: 'Agregar usuario'
+  edit_user: 'Modificar usuario'
+  
+  # devices view
+  devices: 'Dispositivos'
+  exten_search: 'Ingresar exten a buscar...'
+  search: 'Buscar'
+  add_device: 'Agregar dispositivo'
+  edit_device: 'Modificar dispositivo'
+  
+  # rates view
+  rates: 'Tarifas'
+  prefix_search: 'Ingresar prefix a buscar...'
+  search: 'Buscar'  
+  add_rate: 'Agregar tarifa'
+  edit_rate: 'Modificar tarifa'
+  
+  # outgoing_calls view
+  outgoing_calls: 'Llamadas salientes'
+  calldate_search: 'Ingresar calldate a buscar...'
+  search: 'Buscar'  
+  add_outgoingcall: 'Agregar llamada saliente'
+  edit_outgoingcall: 'Modificar llamada saliente'
+  
+  # incomming_calls view
+  incomming_calls: 'Llamadas entrantes'
+  calldate_search: 'Ingresar calldate a buscar...'
+  search: 'Buscar'  
+  add_incommingcall: 'Agregar llamada entrante'
+  edit_incommingcall: 'Modificar llamada entrante'
+  
+  # failed_calls view
+  failed_calls: 'Llamadas fallidas'
+  calldate_search: 'Ingresar calldate a buscar...'
+  search: 'Buscar'
+  add_failedcall: 'Agregar llamada fallida'
+  edit_failedcall: 'Modificar llamada fallida'
+  
+  # consult view
+  data_range: 'Ingresar rango de fechas'
+  from: 'Desde: '
+  to: 'Hasta: '
+  go: 'Ir'
+  month_spending: 'consumo del mes corriente'
+  calls_from: 'Llamadas desde'
+  calls_to: 'hasta'
+  total_cost: 'Costo total'
+    
+  # saved expenses view
+  saved_expenses_list: 'Consultas de gastos'
+  not_invoices: 'No hay consultas guardadas !!!'
+  
+  # csv_files view
+  csv_files: 'Archivos CSV'
+  file_search: 'Ingresar filename a buscar...'
+  search: 'Buscar'
+  add_csvfile: 'Agregar archivo CSV'
+  csv_file: 'Archivo CSV:'
+  save: 'Guardar'
+  
+    
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %b"
+      long: "%d de %B de %Y"
+      human: "%e %b de %I:%M%p"
+      
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+
+    month_names:
+      - ~
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+    abbr_month_names:
+      - ~
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      short: "%d de %b %H:%M"
+      long: "%d de %B de %Y %H:%M"
+      human: "%e %b de %Y %I:%M%p"
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: ", y "
+
+    select:
+      prompt: "Por favor seleccione"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one:  "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:  "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:  "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:  "alrededor de 1 hora"
+        other: "alrededor de %{count} horas"
+      x_days:
+        one:  "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one:  "alrededor de 1 mes"
+        other: "alrededor de %{count} meses"
+      x_months:
+        one:  "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:  "alrededor de 1 año"
+        other: "alrededor de %{count} años"
+      over_x_years:
+        one:  "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one: "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minutos"
+      second: "Segundos"
+
+  helpers:
+    select:
+      prompt: "Por favor seleccione"
+
+    submit:
+      create: 'Crear %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "no está incluido en la lista"
+      exclusion: "está reservado"
+      invalid: "no es válido"
+      confirmation: "no coincide con la confirmación"
+      accepted: "debe ser aceptado"
+      empty: "no puede estar vacío"
+      blank: "no puede estar en blanco"
+      too_long: "es demasiado largo (%{count} caracteres máximo)"
+      too_short: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      not_a_number: "no es un número"
+      not_an_integer: "debe ser un entero"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
+      equal_to: "debe ser igual a %{count}"
+      less_than: "debe ser menor que %{count}"
+      less_than_or_equal_to: "debe ser menor que o igual a %{count}"
+      odd: "debe ser impar"
+      even: "debe ser par"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
+          other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
+        # The variable :count is also available
+        body: "Se encontraron problemas con los siguientes campos:"
+
+      messages:
+        taken: "ya está en uso"
+        record_invalid: "La validación falló: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+        
+    attributes:
+      user:
+        email: "email"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de contraseña"
+        remember_me: "Recordarme"

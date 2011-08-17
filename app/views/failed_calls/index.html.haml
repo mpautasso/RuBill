@@ -1,12 +1,11 @@
-%h1.title
-  Failed calls
+%h1.title=t(:failed_calls)
 
 = form_tag failed_calls_path, :method => 'get', :id => "failedcalls_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter call date to search...'
+    = text_field_tag :search, params[:search], :placeholder => t(:calldate_search)
     #submit
       .button
-        = submit_tag "Search", :name => nil
+        = submit_tag t(:search), :name => nil
   %p
   #failed_calls_table
     = render 'failed_calls'

@@ -7,7 +7,7 @@
   %td= number_to_currency(outgoing_call.cost)
   - if current_user.admin?
     %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), edit_outgoing_call_path(outgoing_call), :class => 'popme'
-    %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), outgoing_call, :confirm => 'Are you sure?', |
+    %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), outgoing_call, :confirm => t(:are_sure), |
                               :method => :delete, |
                               :remote => true
   - else

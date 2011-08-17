@@ -1,5 +1,5 @@
 #header-popup
-  %h1 New failed call
+  %h1=t(:add_failedcall)
   %br
 .container{:style => "width:500px"}
   = form_for @failed_call, :url => failed_calls_path, :remote => true do |f|

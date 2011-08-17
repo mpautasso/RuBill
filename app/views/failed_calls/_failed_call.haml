@@ -8,7 +8,7 @@
     %td= link_to image_tag("my_images/edit.png", :alt => "Edit"), |
       edit_failed_call_path(failed_call), :class => 'popme'
     %td= link_to image_tag("my_images/delete.png", :alt => "Delete"), |
-      failed_call, :confirm => 'Are you sure?', :method => :delete, remote:true
+      failed_call, :confirm => t(:are_sure), :method => :delete, remote:true
   - else
     %td
     

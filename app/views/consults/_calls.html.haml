@@ -1,7 +1,7 @@
 %br
 %br
 %h3
-  = "Calls from #{from} to #{to}"
+  = "#{t(:calls_from)} #{from} #{t(:calls_to)} #{to}"
 
 %table
   %tr.pretty
@@ -15,7 +15,7 @@
   = render :partial => 'call', :collection => @calls  
 
 .total-cost
-  Total cost:
+  = t(:total_cost)
   = number_to_currency(@calls.inject(0.0) { |sum, i| sum + i.cost})
 
 - if @calls.any?

@@ -1,5 +1,5 @@
 #header-popup
-  %h1 Editing rate
+  %h1=t(:edit_rate)
   %br
 .container{:style => "width:600px"}
   = form_for @rate, :url => rate_path(@rate), :remote => true do |f|

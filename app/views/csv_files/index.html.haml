@@ -1,11 +1,11 @@
-%h1.title CSV files
+%h1.title=t(:csv_files)
 
 = form_tag csv_files_path, :method => 'get', :id => "csv_files_search" do
   %p
-    = text_field_tag :search, params[:search], :placeholder => 'Enter file name to search...'
+    = text_field_tag :search, params[:search], :placeholder => t(:file_search)
     #submit
       .button
-        = submit_tag "Search", :csv_file => nil
+        = submit_tag t(:search), :csv_file => nil
 %p
 #csv_files_table
   = render 'csv_files'
