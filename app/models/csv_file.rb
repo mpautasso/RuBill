@@ -8,8 +8,11 @@ class CsvFile < ActiveRecord::Base
   validates_attachment_content_type :csv, :content_type => ['application/x-crossover-csv']
   
   has_attached_file :csv,
-                    :path => ":rails_root/public/system/csvs/:basename.:extension",
-                    :url => "/system/csvs/:basename.:extension"
+                    :path => ":attachment/:id/:style/:filename",
+                    :url => "http://ftp.drivehq.com/archivos/:attachment/:id/:style/:filename",
+                    :storage => :ftp,
+                    :ftp_credentials => Rails.root.join('config', 'paperclipftp.yaml'),
+                    :ftp_passive_mode => true
   
 
   def self.search(search)
