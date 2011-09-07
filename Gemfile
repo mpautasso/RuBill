@@ -16,7 +16,6 @@ gem 'annotate', '2.4.0'
 gem 'rake', "0.8.7"
 
 gem 'paperclip'
-gem 'paperclipftp', '0.2.4'
 gem 'mime-types', :require => 'mime/types'
 
 group :development, :test do
