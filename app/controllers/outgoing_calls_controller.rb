@@ -57,7 +57,7 @@ class OutgoingCallsController < ApplicationController
         format.html { redirect_to(@outgoing_call, :notice => 'Outgoing call was successfully created.') }
         format.xml  { render :xml => @outgoing_call, :status => :created, :location => @outgoing_call }
       else
-        format.js { render :error }
+        format.js   { render :error }
         format.html { render :action => "new" }
         format.xml  { render :xml => @outgoing_call.errors, :status => :unprocessable_entity }
       end

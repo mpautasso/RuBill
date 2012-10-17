@@ -5,7 +5,7 @@ class CsvFile < ActiveRecord::Base
   
   validates :csv_file_name, :uniqueness => true
   validates_attachment_presence :csv
-  validates_attachment_content_type :csv, :content_type => ['application/x-crossover-csv']
+  validates_attachment_content_type :csv, :content_type => ['application/x-crossover-csv', 'text/csv', 'application/vnd.ms-excel']
   
   has_attached_file :csv,
                     :path => ":rails_root/public/system/csvs/:basename.:extension",

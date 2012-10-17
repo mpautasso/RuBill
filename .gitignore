@@ -4,4 +4,5 @@ config/database.yml
 log/*.log
 tmp/
 Gemfile.lock
+public/system/
 .rvmrc
