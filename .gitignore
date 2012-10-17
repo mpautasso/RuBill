@@ -5,4 +5,5 @@ log/*.log
 tmp/
 Gemfile.lock
 public/system/
-.rvmrc
+.rvmrc*
+*~

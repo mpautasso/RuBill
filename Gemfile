@@ -7,16 +7,17 @@ gem 'rails', '3.0.7'
 
 gem 'mysql2', '< 0.3'
 
-gem "haml", ">= 3.0.18"
-gem "devise", ">=1.1.7"
-gem "simple-navigation", ">= 3.0.0"
-gem 'will_paginate',:git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
+gem "haml"
+gem "devise"
+gem "simple-navigation"
+gem 'will_paginate'
 
-gem 'annotate', '2.4.0'
-gem 'rake', "0.8.7"
+gem 'annotate'
+gem 'rake'
 
 gem 'paperclip'
 gem 'mime-types', :require => 'mime/types'
+gem 'unicorn'
 
 group :development, :test do
   gem 'capybara'

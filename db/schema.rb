@@ -10,14 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630191743) do
+ActiveRecord::Schema.define(:version => 20110819125847) do
+
+  create_table "csv_files", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "imported"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "csv_file_name"
+    t.string   "csv_content_type"
+    t.integer  "csv_file_size"
+    t.datetime "csv_updated_at"
+  end
 
   create_table "devices", :force => true do |t|
     t.integer  "user_id"
     t.string   "exten"
     t.integer  "priority"
-    t.string   "app"
-    t.string   "appd_ata"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20110630191743) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "invoice_id"
-    t.integer  "device_id"
   end
 
   create_table "incomming_calls", :force => true do |t|
@@ -63,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20110630191743) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "invoice_id"
-    t.integer  "device_id"
   end
 
   create_table "invoices", :force => true do |t|
@@ -72,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20110630191743) do
     t.datetime "updated_at"
     t.datetime "from"
     t.datetime "to"
+    t.decimal  "total",      :precision => 6, :scale => 2, :default => 0.0, :null => false
   end
 
   create_table "items", :force => true do |t|
@@ -85,33 +93,33 @@ ActiveRecord::Schema.define(:version => 20110630191743) do
 
   create_table "outgoing_calls", :force => true do |t|
     t.datetime "calldate"
-    t.string   "clid",        :limit => 80, :default => ""
-    t.string   "src",         :limit => 80, :default => ""
-    t.string   "dst",         :limit => 80, :default => ""
-    t.string   "dcontext",    :limit => 80, :default => ""
-    t.string   "channel",     :limit => 80, :default => ""
-    t.string   "dstchannel",  :limit => 80, :default => ""
-    t.string   "lastapp",     :limit => 80, :default => ""
-    t.string   "lastdata",    :limit => 80, :default => ""
-    t.integer  "duration",                  :default => 0
-    t.integer  "billsec",                   :default => 0
-    t.string   "disposition", :limit => 45, :default => ""
-    t.integer  "amaflags",                  :default => 0
-    t.string   "accountcode", :limit => 20, :default => ""
-    t.string   "userfield",                 :default => ""
+    t.string   "clid",        :limit => 80,                               :default => ""
+    t.string   "src",         :limit => 80,                               :default => ""
+    t.string   "dst",         :limit => 80,                               :default => ""
+    t.string   "dcontext",    :limit => 80,                               :default => ""
+    t.string   "channel",     :limit => 80,                               :default => ""
+    t.string   "dstchannel",  :limit => 80,                               :default => ""
+    t.string   "lastapp",     :limit => 80,                               :default => ""
+    t.string   "lastdata",    :limit => 80,                               :default => ""
+    t.integer  "duration",                                                :default => 0
+    t.integer  "billsec",                                                 :default => 0
+    t.string   "disposition", :limit => 45,                               :default => ""
+    t.integer  "amaflags",                                                :default => 0
+    t.string   "accountcode", :limit => 20,                               :default => ""
+    t.string   "userfield",                                               :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cost"
+    t.decimal  "cost",                      :precision => 6, :scale => 2, :default => 0.0, :null => false
     t.integer  "invoice_id"
-    t.string   "device_id"
+    t.integer  "rate_id"
   end
 
   create_table "rates", :force => true do |t|
     t.string   "prefix"
     t.integer  "initial_time"
-    t.integer  "initial_cost"
-    t.integer  "interval"
-    t.integer  "interval_cost"
+    t.decimal  "initial_cost",  :precision => 6, :scale => 2, :default => 0.0, :null => false
+    t.integer  "interval_time"
+    t.decimal  "interval_cost", :precision => 6, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -133,7 +141,7 @@ ActiveRecord::Schema.define(:version => 20110630191743) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "fullname"
+    t.string   "last_name"
     t.boolean  "admin",                                 :default => false
   end
 
